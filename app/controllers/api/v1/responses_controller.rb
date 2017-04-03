@@ -25,6 +25,6 @@ class Api::V1::ResponsesController < Api::V1::BaseController
   private
 
   def response_params
-    params.require(:response).permit(:id, :name)
+    params.permit(:name)
   end
 end

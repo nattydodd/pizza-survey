@@ -11,7 +11,8 @@ class Api::V1::QuestionsController < Api::V1::BaseController
 
 
   def create
-    respond_with :api, :v1, Question.create(question_params)
+    question = Question.create(question_params)
+    respond_with :api, :v1, :responses, :response_id, json: question 
   end
 
   def destroy
@@ -27,6 +28,6 @@ class Api::V1::QuestionsController < Api::V1::BaseController
   private
 
   def question_params
-    params.require(:question).permit(:id, :response_id, :question, :answer, :style)
+    params.permit(:response_id, :question, :answer, :style)
   end
 end
