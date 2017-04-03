@@ -6,4 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-10.times { Response.create!(name: "Test") }
+# 10.times { Response.create!(name: "Test") }
+
+# Question.create(question: 'this is a question', answer: 'this is an answer', style: 'this is a multiple choice', response_id: 1)
+
+Answers = Question.create([{ question: 'this is a question', answer: 'this is an answer', style: 'this is a multiple choice', response_id: 2}, {question: 'this is a question', answer: 'this is an answer', style: 'this is a multiple choice', response_id: 2}])

@@ -3,8 +3,13 @@ class Api::V1::ResponsesController < Api::V1::BaseController
     respond_with Response.all
   end
 
+  def show
+    response = Response.find(params["id"])
+    respond_with response, json: response
+  end
+
   def create
-    respond_with :api, :v1, Response.create(item_params)
+    respond_with :api, :v1, Response.create(response_params)
   end
 
   def destroy
