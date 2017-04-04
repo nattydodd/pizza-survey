@@ -37,6 +37,9 @@ gem 'jbuilder', '~> 2.5'
 # will let us apply a "respond_to rule to all actions in the controller"
 gem 'responders'
 
+# allows react to work with rails
+gem 'react-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
