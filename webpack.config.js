@@ -12,7 +12,10 @@ module.exports = {
   context: __dirname + "/app/assets",
 
   entry: {
-    application: ["./javascripts/application.js", "./stylesheets/application.css"]
+    application: [
+      "./javascripts/application.js",
+      "./stylesheets/application.css"
+    ]
   },
 
   output: {
@@ -32,7 +35,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'css-loader',
+        loader: ExtractTextPlugin.extract("css!sass"),
       }
     ]
   },
