@@ -13,8 +13,7 @@ module.exports = {
 
   entry: {
     application: [
-      "./javascripts/application.js",
-      "./stylesheets/application.css"
+      "./javascripts/application.js"
     ]
   },
 
@@ -33,10 +32,6 @@ module.exports = {
           presets: ['es2015']
         }
       },
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract("css!sass"),
-      }
     ]
   },
 
