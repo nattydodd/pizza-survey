@@ -13,7 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require react
-//= require react_ujs
-//= require components
 //= require_tree .
+
+
+let odds = [0,2,4,6,8].map(v => v + 1);
+console.log('testing');
