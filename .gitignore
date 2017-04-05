@@ -23,6 +23,3 @@
 .DS_Store
 # Added by webpack-rails
 /node_modules
-
-
-package.json

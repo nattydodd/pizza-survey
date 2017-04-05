@@ -4,7 +4,7 @@ const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const fs = require('fs');
 const prod = process.argv.indexOf('-p') !== -1;
-const css_output_template = prod ? "stylesheets/[name]-[hash].css" : "stylesheets/[name].css";
+// const css_output_template = prod ? "stylesheets/[name]-[hash].css" : "stylesheets/[name].css";
 const js_output_template = prod ? "javascripts/[name]-[hash].js" : "javascripts/[name].js";
 
 
@@ -29,14 +29,13 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015']
+          presets: ['react', 'latest', 'es2015']
         }
       },
     ]
   },
 
   plugins: [
-    new ExtractTextPlugin(css_output_template),
     function() {
       // output the fingerprint
       this.plugin("done", function(stats) {

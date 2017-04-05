@@ -1,0 +1,40 @@
+{
+  "name": "challenge",
+  "version": "1.0.0",
+  "description": "Clark Development Challenge",
+  "scripts": {
+    "start": "rails s && webpack --progress --colors --watch",
+    "build-css": "node-sass --include-path scss public/sass/application.scss   public/stylesheets/application.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClarkSource/Challenge"
+  },
+  "license": "UNLICENSED",
+  "private": "true",
+  "author": "Natalie Dodd",
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "redux": "^3.6.0",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-latest": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "node-sass": "^4.5.2",
+    "nodemon": "^1.11.0",
+    "react-hot-loader": "^1.3.1",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1"
+  }
+}
