@@ -16,8 +16,8 @@ class QuestionList extends Component {
   render() {
 
       return (
-        <div>
-            {this.renderList(this.props.questions)}
+        <div className="container">
+          {this.renderList(this.props.questions)}
         </div>
       );
 

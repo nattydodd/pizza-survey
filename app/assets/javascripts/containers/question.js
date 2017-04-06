@@ -1,15 +1,18 @@
 import React from 'react';
 import { Component } from 'react';
+import AnswerField from '../components/answer_field';
 
 class Question extends Component {
   render() {
     return (
-        <div>
-         <h1>{this.props.question.question}</h1>
-         <h3>{this.props.question.description}</h3>
-         <h5>{this.props.question.options}</h5>
+      <div className="row">
+        <div className="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 question-container">
+         <h2>{this.props.question.question}</h2>
+         <h4>{this.props.question.description}</h4>
          <h5>{this.props.question.style}</h5>
+         <AnswerField style = {this.props.question.style} options = {this.props.question.options}/>
         </div>
+      </div>
     );
   }
 }

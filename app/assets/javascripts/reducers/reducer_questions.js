@@ -56,7 +56,7 @@ export default function() {
         4,
         5
       ],
-      style: 'free text'
+      style: 'single answer'
     },
   ]
 }
