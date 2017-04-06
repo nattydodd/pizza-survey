@@ -9,7 +9,7 @@ import Survey from './containers/survey';
 export default (
   <Route path="/" component={App}>
     {/*<IndexRoute component={Home} />*/}
-      <Route path="survey" component={Survey} />
+      <IndexRoute component={Survey} />
     {/*<Route path="results" component={Results} />*/}
   </Route>
 );

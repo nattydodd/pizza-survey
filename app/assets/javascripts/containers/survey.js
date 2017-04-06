@@ -6,11 +6,8 @@ export default class Survey extends Component {
   render() {
 
       return (
-        <div className="container-fluid wrapper">
-          {/*<TopNav />*/}
-            <div className="app">
-              {this.props.children}
-            </div>
+        <div className="container">
+          <h1>This is the Survey</h1>
         </div>
       );
   }
