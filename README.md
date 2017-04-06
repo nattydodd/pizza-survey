@@ -1,6 +1,6 @@
 # README
 
-This is a survey application that renders pre-written survey questions. The responses are posted to a backend API (built in Rails) and all survey results can be viewed from the application frontend.
+This is a survey application that renders pre-written survey questions. The responses are collected via client-side interaction, and posted to a backend API (built in Rails). All survey results can be fetched from the server and viewed from the application frontend.
 
 Tools Used:
 
@@ -17,24 +17,22 @@ Tools Used:
 Additional Dependencies:
 * react-router
 
-To Start Dev server:
-
+To start dev server:
 $ foreman start -f Procfile.dev
 
 To watch for CSS changes in development:
 $ npm run watch-css
 
+To run test suite:
+$ npm test
+
 ----
 
 * System dependencies
 
-* Configuration
-
-* Database creation
 
 * Database initialization
 
-* How to run the test suite
 
 * Services (job queues, cache servers, search engines, etc.)
 
