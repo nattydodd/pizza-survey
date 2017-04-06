@@ -5,14 +5,10 @@ import { Component } from 'react';
 
 export default class App extends Component {
   render() {
-
-      return (
-        <div className="container-fluid wrapper">
-          {/*<TopNav />*/}
-            <div className="app">
-              {this.props.children}
-            </div>
+    return (
+        <div className="app">
+          {this.props.children}
         </div>
-      );
+    );
   }
 }

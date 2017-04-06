@@ -1,14 +1,24 @@
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import QuestionList from '../components/question_list';
 
 
-class Survey extends Component {
+export class Survey extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      response: []
+    }
+
+  }
+
   render() {
 
       return (
         <div className="container">
-          <h1>{this.props.questions[0].question}</h1>
+          <QuestionList questions = {this.props.questions} />
         </div>
       );
   }

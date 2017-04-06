@@ -1,6 +1,7 @@
 export default function() {
   return [
     {
+      id: 1,
       question: 'What are your favourite pizza toppings?',
       description: 'Choose as many as you like!',
       options: [
@@ -19,6 +20,7 @@ export default function() {
       style: 'multiple choice'
     },
     {
+      id: 2,
       question: 'How many slices do you normally eat in one sitting?',
       description: 'Please choose one option',
       options: [
@@ -37,12 +39,14 @@ export default function() {
       style: 'single answer'
     },
     {
+      id: 3,
       question: 'What is the name of your favourite pizza place?',
       description: 'Please enter the name',
       options: null,
       style: 'free text'
     },
     {
+      id: 4,
       question: 'How would you rate this pizza survey? :)',
       description: 'Please choose your rating (1 = Bad, 5 = Excellent)',
       options: [
