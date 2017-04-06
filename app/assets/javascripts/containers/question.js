@@ -10,7 +10,10 @@ class Question extends Component {
          <h2>{this.props.question.question}</h2>
          <h4>{this.props.question.description}</h4>
          <h5>{this.props.question.style}</h5>
-         <AnswerField style = {this.props.question.style} options = {this.props.question.options}/>
+         <AnswerField
+          id = {this.props.question.id}
+          style = {this.props.question.style}
+          options = {this.props.question.options} />
         </div>
       </div>
     );

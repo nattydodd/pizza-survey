@@ -30682,7 +30682,10 @@ var Question = function (_Component) {
             null,
             this.props.question.style
           ),
-          _react2.default.createElement(_answer_field2.default, { style: this.props.question.style, options: this.props.question.options })
+          _react2.default.createElement(_answer_field2.default, {
+            id: this.props.question.id,
+            style: this.props.question.style,
+            options: this.props.question.options })
         )
       );
     }
@@ -30728,26 +30731,55 @@ var AnswerField = function (_Component) {
   }
 
   _createClass(AnswerField, [{
+    key: 'displayRadioInputs',
+    value: function displayRadioInputs(options) {
+      return options.map(function (option) {
+        return _react2.default.createElement(
+          'span',
+          { key: option },
+          _react2.default.createElement('input', { type: 'radio', value: option }),
+          _react2.default.createElement(
+            'label',
+            null,
+            option
+          )
+        );
+      });
+    }
+  }, {
+    key: 'displaySelectInputs',
+    value: function displaySelectInputs(options) {
+      return options.map(function (option) {
+        console.log(option);
+        return _react2.default.createElement(
+          'option',
+          { key: option, value: option },
+          option
+        );
+      });
+    }
+  }, {
     key: 'renderFields',
-    value: function renderFields(style, options) {
+    value: function renderFields(style, options, id) {
       if (style === "multiple choice") {
-        return options.map(function (option) {
-          return _react2.default.createElement(
-            'fieldset',
-            { key: option },
-            _react2.default.createElement('input', { type: 'radio', name: 'select', id: option, value: option }),
-            _react2.default.createElement(
-              'label',
-              null,
-              option
-            )
-          );
-        });
+        return _react2.default.createElement(
+          'fieldset',
+          null,
+          this.displayRadioInputs(options)
+        );
       }
 
-      if (style === "free text") {}
+      if (style === "free text") {
+        return _react2.default.createElement('input', { type: 'text' });
+      }
 
-      if (style === "single answer") {}
+      if (style === "single answer") {
+        return _react2.default.createElement(
+          'select',
+          null,
+          this.displaySelectInputs(options)
+        );
+      }
     }
   }, {
     key: 'render',

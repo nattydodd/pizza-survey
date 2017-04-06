@@ -1,25 +1,50 @@
 import React from 'react';
 import { Component } from 'react';
 
+
+
 class AnswerField extends Component {
 
- renderFields(style, options) {
+ displayRadioInputs(options) {
+    return options.map((option) => {
+      return (
+        <span key={option}>
+          <input type="radio" value={option} /><label>{option}</label>
+        </span>
+      );
+    });
+  }
+
+  displaySelectInputs(options) {
+    return options.map((option) => {
+      console.log(option);
+      return (
+          <option key={option} value={option}>{option}</option>
+      );
+    });
+  }
+
+ renderFields(style, options, id) {
     if ( style === "multiple choice" ) {
-      return options.map((option) => {
-        return (
-          <fieldset key={option}>
-            <input type="radio" name="select" id={option} value={option} /><label>{option}</label>
+      return (
+          <fieldset>
+            {this.displayRadioInputs(options)}
           </fieldset>
-        );
-      });
+      );
     }
 
     if ( style === "free text" ) {
-
+      return (
+        <input type="text" />
+      );
     }
 
     if ( style === "single answer" ) {
-
+        return (
+          <select>
+            {this.displaySelectInputs(options)}
+          </select>
+       );
     }
 
   }
