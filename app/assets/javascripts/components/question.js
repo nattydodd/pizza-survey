@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import AnswerField from '../components/answer_field';
+import AnswerField from './answer_field';
 
 
 class Question extends Component {
@@ -30,17 +30,17 @@ class Question extends Component {
             disabledState = {this.props.activeQuestion === item.id ? false : true } />
 
           <button
-          className={item.id === 1 ? 'no-button' : 'btn btn-primary'}
-          onClick={() => {this.handleActiveChange(item.id - 1)}}
-          disabled={this.props.activeQuestion === item.id ? false : true }>
-          Back
+            className={item.id === 1 ? 'no-button' : 'btn btn-primary'}
+            onClick={() => {this.handleActiveChange(item.id - 1)}}
+            disabled={this.props.activeQuestion === item.id ? false : true }>
+            Back
           </button>
 
           <button
-          className={this.props.lastQuestion === true ? 'no-button' : 'btn btn-primary'}
-          onClick={() => {this.handleActiveChange(item.id + 1)}}
-          disabled={this.props.activeQuestion === item.id ? false : true }>
-          Next
+            className={this.props.lastQuestion === true ? 'no-button' : 'btn btn-primary'}
+            onClick={() => {this.handleActiveChange(item.id + 1)}}
+            disabled={this.props.activeQuestion === item.id ? false : true }>
+            Next
           </button>
           </div>
         </div>

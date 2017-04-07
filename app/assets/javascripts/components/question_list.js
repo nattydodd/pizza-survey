@@ -1,6 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
-import Question from '../containers/question';
+import Question from './question';
+import SideNav from './sidenav';
 require('smoothscroll-polyfill').polyfill();
 
 
@@ -45,8 +46,15 @@ class QuestionList extends Component {
   render() {
 
       return (
-        <div className="container">
-          {this.renderList(this.props.questions)}
+        <div className="row">
+          <div className="container col-xs-10">
+            {this.renderList(this.props.questions)}
+          </div>
+          <div className="col-xs-1">
+            <SideNav
+              questions = {this.props.questions}
+              onNextClick = {this.handleNext.bind(this)} />
+          </div>
         </div>
       );
 
