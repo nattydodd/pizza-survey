@@ -18,6 +18,7 @@ Additional Dependencies:
 * react-router
 
 To start dev server:
+$ npm install webpack -g
 $ foreman start -f Procfile.dev
 
 To watch for CSS changes in development:

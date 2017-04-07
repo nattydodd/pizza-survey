@@ -8,9 +8,9 @@ class AnswerField extends Component {
  displayRadioInputs(options) {
     return options.map((option) => {
       return (
-        <span key={option}>
+        <div key={option}>
           <input type="radio" value={option} /><label>{option}</label>
-        </span>
+        </div>
       );
     });
   }

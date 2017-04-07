@@ -3,6 +3,12 @@ import { Component } from 'react';
 import AnswerField from '../components/answer_field';
 
 class Question extends Component {
+
+  handleActiveChange() {
+    this.props.onNextClick(this.props.question.id + 1);
+  }
+
+
   render() {
     return (
       <div className="row">
@@ -15,6 +21,11 @@ class Question extends Component {
           style = {this.props.question.style}
           options = {this.props.question.options} />
         </div>
+        <button
+        className="btn btn-primary"
+        onClick={() => {this.handleActiveChange()}}>
+        Next
+        </button>
       </div>
     );
   }
