@@ -1,6 +1,9 @@
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import { reduxForm } from 'redux-form';
+import { bindActionCreators } from 'redux';
+import { createResponseId } from '../actions/index';
 import QuestionList from '../components/question_list';
 
 
@@ -16,9 +19,20 @@ export class Survey extends Component {
 
   }
 
+  onSubmit(props) {
+     console.log(props);
+     this.props.createResponseId(props);
+   }
+
+   componentDidReceiveProps(nextprops) {
+     this.setState({
+       responseId: nextprops.responseId
+     });
+   }
+
   render() {
 
-    const { field: name, handleSubmit } = this.props
+    const { fields: {name}, handleSubmit } = this.props;
 
     if (!this.state.responseId) {
       return (
@@ -26,8 +40,8 @@ export class Survey extends Component {
           <h2>Thanks for participating!</h2>
           <h4>Please enter your name to get started</h4>
 
-          <form id="user-form">
-            <input type="text" placeholder="Name" className="form-control" value={this.state.value} onChange={this.handleChange} {...name} />
+          <form id="user-form" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+            <input type="text" placeholder="Name" className="form-control" {...name} />
             <button type="submit" className="btn btn-primary login-button">Start Survey</button>
           </form>
         </div>
@@ -47,8 +61,17 @@ export class Survey extends Component {
 
 function mapStateToProps(state) {
   return {
-    questions: state.questions
+    questions: state.questions,
+    responseId: state.responseId
   }
 }
 
-export default connect(mapStateToProps)(Survey);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ createResponseId }, dispatch );
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
+  form: 'ResponseID',
+  fields: ['name']
+})(Survey));
