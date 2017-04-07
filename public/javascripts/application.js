@@ -13992,6 +13992,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+__webpack_require__(294).polyfill();
+
 var QuestionList = function (_Component) {
   _inherits(QuestionList, _Component);
 
@@ -14010,6 +14012,18 @@ var QuestionList = function (_Component) {
     key: 'handleNext',
     value: function handleNext(newActive) {
       this.setState({ activeQuestion: newActive });
+      console.log(this.refs[newActive]);
+      this.scrollToElement(this.refs[newActive]);
+    }
+  }, {
+    key: 'scrollToElement',
+    value: function scrollToElement(pageElement) {
+      console.log(pageElement.offsetTop);
+      window.scroll({
+        top: pageElement.offsetTop,
+        left: 0,
+        behavior: 'smooth'
+      });
     }
   }, {
     key: 'renderList',
@@ -14017,12 +14031,15 @@ var QuestionList = function (_Component) {
       var _this2 = this;
 
       return questions.map(function (question, idx, array) {
-        return _react2.default.createElement(_question2.default, {
-          key: question.id,
-          question: question,
-          onNextClick: _this2.handleNext.bind(_this2),
-          activeQuestion: _this2.state.activeQuestion,
-          lastQuestion: idx === array.length - 1 ? true : false });
+        return _react2.default.createElement(
+          'div',
+          { key: question.id, ref: question.id },
+          _react2.default.createElement(_question2.default, {
+            question: question,
+            onNextClick: _this2.handleNext.bind(_this2),
+            activeQuestion: _this2.state.activeQuestion,
+            lastQuestion: idx === array.length - 1 ? true : false })
+        );
       });
     }
   }, {
@@ -14071,8 +14088,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-__webpack_require__(294).polyfill();
-
 var Question = function (_Component) {
   _inherits(Question, _Component);
 
@@ -14088,26 +14103,6 @@ var Question = function (_Component) {
       this.props.onNextClick(newActive);
     }
   }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-
-      if (this.targetElement.className === "activeQuestion") {
-        console.log(this.targetElement);
-      }
-
-      this.scrollToElement(this.targetElement);
-    }
-  }, {
-    key: 'scrollToElement',
-    value: function scrollToElement(pageElement) {
-
-      window.scroll({
-        top: pageElement.offsetTop,
-        left: 0,
-        behavior: 'smooth'
-      });
-    }
-  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -14120,11 +14115,7 @@ var Question = function (_Component) {
           { className: 'col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 question-container' },
           _react2.default.createElement(
             'div',
-            {
-              className: this.props.activeQuestion === this.props.question.id ? 'activeQuestion' : 'inactiveQuestion',
-              ref: function ref(div) {
-                _this2.targetElement = div;
-              } },
+            { className: this.props.activeQuestion === this.props.question.id ? 'activeQuestion' : 'inactiveQuestion' },
             _react2.default.createElement(
               'h2',
               null,

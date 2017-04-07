@@ -1,37 +1,14 @@
 import React from 'react';
 import { Component } from 'react';
 import AnswerField from '../components/answer_field';
-require('smoothscroll-polyfill').polyfill();
+
 
 class Question extends Component {
 
 
   handleActiveChange(newActive) {
     this.props.onNextClick(newActive);
-
-
   }
-
-  componentDidMount() {
-
-      if (this.targetElement.className === "activeQuestion") {
-        console.log(this.targetElement);
-      }
-
-
-    this.scrollToElement(this.targetElement);
-  }
-
-
-  scrollToElement(pageElement) {
-
-    window.scroll({
-      top: pageElement.offsetTop,
-      left: 0,
-      behavior: 'smooth'
-    });
-
- }
 
 
   render() {
@@ -39,9 +16,7 @@ class Question extends Component {
     return (
       <div className="row">
         <div className="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 question-container">
-          <div
-          className={this.props.activeQuestion === this.props.question.id ? 'activeQuestion' : 'inactiveQuestion'}
-          ref={(div) => { this.targetElement = div; }}>
+          <div className={this.props.activeQuestion === this.props.question.id ? 'activeQuestion' : 'inactiveQuestion'}>
            <h2>{this.props.question.question}</h2>
            <h4>{this.props.question.description}</h4>
            <h5>{this.props.question.style}</h5>
