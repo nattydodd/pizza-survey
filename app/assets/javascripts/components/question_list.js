@@ -14,14 +14,13 @@ class QuestionList extends Component {
     }
   }
 
+  // is a bound prop on the question component. Updates active question state.
   handleNext(newActive) {
     this.setState({ activeQuestion: newActive });
-    console.log(this.refs[newActive]);
     this.scrollToElement(this.refs[newActive]);
   }
 
   scrollToElement(pageElement) {
-    console.log(pageElement.offsetTop);
     window.scroll({
       top: pageElement.offsetTop,
       left: 0,
@@ -32,7 +31,7 @@ class QuestionList extends Component {
   renderList(questions) {
     return questions.map((question, idx, array) => {
       return (
-        <div key = {question.id} ref={question.id} >
+        <div key={question.id} ref={question.id} >
           <Question
             question = {question}
             onNextClick = {this.handleNext.bind(this)}

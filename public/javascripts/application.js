@@ -14008,17 +14008,18 @@ var QuestionList = function (_Component) {
     return _this;
   }
 
+  // is a bound prop on the question component. Updates active question state.
+
+
   _createClass(QuestionList, [{
     key: 'handleNext',
     value: function handleNext(newActive) {
       this.setState({ activeQuestion: newActive });
-      console.log(this.refs[newActive]);
       this.scrollToElement(this.refs[newActive]);
     }
   }, {
     key: 'scrollToElement',
     value: function scrollToElement(pageElement) {
-      console.log(pageElement.offsetTop);
       window.scroll({
         top: pageElement.offsetTop,
         left: 0,
@@ -14101,11 +14102,14 @@ var Question = function (_Component) {
     key: 'handleActiveChange',
     value: function handleActiveChange(newActive) {
       this.props.onNextClick(newActive);
+      // triggers the handleNext function that is bound to the Question List component
     }
   }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
+
+      var item = this.props.question;
 
       return _react2.default.createElement(
         'div',
@@ -14115,35 +14119,35 @@ var Question = function (_Component) {
           { className: 'col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 question-container' },
           _react2.default.createElement(
             'div',
-            { className: this.props.activeQuestion === this.props.question.id ? 'activeQuestion' : 'inactiveQuestion' },
+            { className: this.props.activeQuestion === item.id ? 'activeQuestion' : 'inactiveQuestion' },
             _react2.default.createElement(
               'h2',
               null,
-              this.props.question.question
+              item.question
             ),
             _react2.default.createElement(
               'h4',
               null,
-              this.props.question.description
+              item.description
             ),
             _react2.default.createElement(
               'h5',
               null,
-              this.props.question.style
+              item.style
             ),
             _react2.default.createElement(_answer_field2.default, {
-              id: this.props.question.id,
-              style: this.props.question.style,
-              options: this.props.question.options,
-              disabledState: this.props.activeQuestion === this.props.question.id ? false : true }),
+              id: item.id,
+              style: item.style,
+              options: item.options,
+              disabledState: this.props.activeQuestion === item.id ? false : true }),
             _react2.default.createElement(
               'button',
               {
-                className: this.props.question.id === 1 ? 'no-button' : 'btn btn-primary',
+                className: item.id === 1 ? 'no-button' : 'btn btn-primary',
                 onClick: function onClick() {
-                  _this2.handleActiveChange(_this2.props.question.id - 1);
+                  _this2.handleActiveChange(item.id - 1);
                 },
-                disabled: this.props.activeQuestion === this.props.question.id ? false : true },
+                disabled: this.props.activeQuestion === item.id ? false : true },
               'Back'
             ),
             _react2.default.createElement(
@@ -14151,9 +14155,9 @@ var Question = function (_Component) {
               {
                 className: this.props.lastQuestion === true ? 'no-button' : 'btn btn-primary',
                 onClick: function onClick() {
-                  _this2.handleActiveChange(_this2.props.question.id + 1);
+                  _this2.handleActiveChange(item.id + 1);
                 },
-                disabled: this.props.activeQuestion === this.props.question.id ? false : true },
+                disabled: this.props.activeQuestion === item.id ? false : true },
               'Next'
             )
           )
