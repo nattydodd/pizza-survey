@@ -11,7 +11,8 @@ class QuestionList extends Component {
     super(props);
 
     this.state = {
-      activeQuestion: 1
+      activeQuestion: 1,
+      response: []
     }
   }
 
@@ -19,6 +20,12 @@ class QuestionList extends Component {
   handleNext(newActive) {
     this.setState({ activeQuestion: newActive });
     this.scrollToElement(this.refs[newActive]);
+  }
+
+  handleResponse(data) {
+    this.setState({
+      response: [ data ]
+    });
   }
 
   scrollToElement(pageElement) {
@@ -29,6 +36,10 @@ class QuestionList extends Component {
     });
   }
 
+  sendResponse(data) {
+    console.log(data);
+  }
+
   renderList(questions) {
     return questions.map((question, idx, array) => {
       return (
@@ -37,7 +48,8 @@ class QuestionList extends Component {
             question = {question}
             onNextClick = {this.handleNext.bind(this)}
             activeQuestion = {this.state.activeQuestion}
-            lastQuestion = {idx === array.length - 1 ? true : false} />
+            lastQuestion = {idx === array.length - 1 ? true : false}
+            onInputUpdate = {this.handleResponse.bind(this)} />
          </div>
       );
     });
@@ -49,6 +61,9 @@ class QuestionList extends Component {
         <div className="row">
           <div className="container col-xs-10 col-xs-offset-1">
             {this.renderList(this.props.questions)}
+            <div className="final-submit">
+              <button className="btn btn-primary" onClick={() => this.sendResponse(this.state.response) }>Submit!</button>
+            </div>
           </div>
           <div className="col-xs-1">
             <SideNav

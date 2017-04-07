@@ -51,10 +51,9 @@ export class Survey extends Component {
 
       return (
         <div className="container">
-          <QuestionList questions = {this.props.questions} />
-          <div className="final-submit">
-            <button className="btn btn-primary">Submit!</button>
-          </div>
+          <QuestionList
+            questions = {this.props.questions}
+            responseId = {this.props.responseId}/>
         </div>
       );
   }

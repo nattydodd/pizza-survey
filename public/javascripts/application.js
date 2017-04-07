@@ -16191,13 +16191,26 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var AnswerField = function (_Component) {
   _inherits(AnswerField, _Component);
 
-  function AnswerField() {
+  function AnswerField(props) {
     _classCallCheck(this, AnswerField);
 
-    return _possibleConstructorReturn(this, (AnswerField.__proto__ || Object.getPrototypeOf(AnswerField)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (AnswerField.__proto__ || Object.getPrototypeOf(AnswerField)).call(this, props));
+
+    _this.state = {
+      value: ''
+    };
+
+    _this.handleInputChange = _this.handleInputChange.bind(_this);
+    return _this;
   }
 
   _createClass(AnswerField, [{
+    key: 'handleInputChange',
+    value: function handleInputChange(event) {
+      this.setState({ value: event.target.value });
+      this.props.onInputUpdate(this.state.value);
+    }
+  }, {
     key: 'displayRadioInputs',
     value: function displayRadioInputs(options) {
       var _this2 = this;
@@ -16240,7 +16253,7 @@ var AnswerField = function (_Component) {
       }
 
       if (style === "free text") {
-        return _react2.default.createElement('input', { type: 'text', disabled: this.props.disabledState });
+        return _react2.default.createElement('input', { type: 'text', disabled: this.props.disabledState, value: this.state.value, onChange: this.handleInputChange });
       }
 
       if (style === "single answer") {
@@ -16343,6 +16356,8 @@ var _answer_field = __webpack_require__(168);
 
 var _answer_field2 = _interopRequireDefault(_answer_field);
 
+var _reactRedux = __webpack_require__(71);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -16365,6 +16380,16 @@ var Question = function (_Component) {
     value: function handleActiveChange(newActive) {
       this.props.onNextClick(newActive);
       // triggers the handleNext function that is bound to the Question List component
+    }
+  }, {
+    key: 'handleResponse',
+    value: function handleResponse(data) {
+      this.props.onInputUpdate({
+        question: this.props.question.question,
+        answer: data,
+        style: this.props.question.style,
+        response_id: this.props.responseId
+      });
     }
   }, {
     key: 'render',
@@ -16401,7 +16426,8 @@ var Question = function (_Component) {
               id: item.id,
               style: item.style,
               options: item.options,
-              disabledState: this.props.activeQuestion === item.id ? false : true }),
+              disabledState: this.props.activeQuestion === item.id ? false : true,
+              onInputUpdate: this.handleResponse.bind(this) }),
             _react2.default.createElement(
               'button',
               {
@@ -16431,7 +16457,13 @@ var Question = function (_Component) {
   return Question;
 }(_react.Component);
 
-exports.default = Question;
+function mapStateToProps(state) {
+  return {
+    responseId: state.responseId
+  };
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(Question);
 
 /***/ }),
 /* 171 */
@@ -16477,7 +16509,8 @@ var QuestionList = function (_Component) {
     var _this = _possibleConstructorReturn(this, (QuestionList.__proto__ || Object.getPrototypeOf(QuestionList)).call(this, props));
 
     _this.state = {
-      activeQuestion: 1
+      activeQuestion: 1,
+      response: []
     };
     return _this;
   }
@@ -16492,6 +16525,13 @@ var QuestionList = function (_Component) {
       this.scrollToElement(this.refs[newActive]);
     }
   }, {
+    key: 'handleResponse',
+    value: function handleResponse(data) {
+      this.setState({
+        response: [data]
+      });
+    }
+  }, {
     key: 'scrollToElement',
     value: function scrollToElement(pageElement) {
       window.scroll({
@@ -16499,6 +16539,11 @@ var QuestionList = function (_Component) {
         left: 0,
         behavior: 'smooth'
       });
+    }
+  }, {
+    key: 'sendResponse',
+    value: function sendResponse(data) {
+      console.log(data);
     }
   }, {
     key: 'renderList',
@@ -16513,13 +16558,15 @@ var QuestionList = function (_Component) {
             question: question,
             onNextClick: _this2.handleNext.bind(_this2),
             activeQuestion: _this2.state.activeQuestion,
-            lastQuestion: idx === array.length - 1 ? true : false })
+            lastQuestion: idx === array.length - 1 ? true : false,
+            onInputUpdate: _this2.handleResponse.bind(_this2) })
         );
       });
     }
   }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
 
       return _react2.default.createElement(
         'div',
@@ -16527,7 +16574,18 @@ var QuestionList = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'container col-xs-10 col-xs-offset-1' },
-          this.renderList(this.props.questions)
+          this.renderList(this.props.questions),
+          _react2.default.createElement(
+            'div',
+            { className: 'final-submit' },
+            _react2.default.createElement(
+              'button',
+              { className: 'btn btn-primary', onClick: function onClick() {
+                  return _this3.sendResponse(_this3.state.response);
+                } },
+              'Submit!'
+            )
+          )
         ),
         _react2.default.createElement(
           'div',
@@ -16730,16 +16788,9 @@ var Survey = exports.Survey = function (_Component) {
       return _react2.default.createElement(
         'div',
         { className: 'container' },
-        _react2.default.createElement(_question_list2.default, { questions: this.props.questions }),
-        _react2.default.createElement(
-          'div',
-          { className: 'final-submit' },
-          _react2.default.createElement(
-            'button',
-            { className: 'btn btn-primary' },
-            'Submit!'
-          )
-        )
+        _react2.default.createElement(_question_list2.default, {
+          questions: this.props.questions,
+          responseId: this.props.responseId })
       );
     }
   }]);

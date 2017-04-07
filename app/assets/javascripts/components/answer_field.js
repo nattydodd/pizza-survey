@@ -2,8 +2,22 @@ import React from 'react';
 import { Component } from 'react';
 
 
-
 class AnswerField extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: ''
+    };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleInputChange(event) {
+    this.setState({value: event.target.value});
+    this.props.onInputUpdate(this.state.value);  
+  }
 
  displayRadioInputs(options) {
     return options.map((option) => {
@@ -34,7 +48,7 @@ class AnswerField extends Component {
 
     if ( style === "free text" ) {
       return (
-        <input type="text" disabled={this.props.disabledState}/>
+        <input type="text" disabled={this.props.disabledState} value={this.state.value} onChange={this.handleInputChange}/>
       );
     }
 

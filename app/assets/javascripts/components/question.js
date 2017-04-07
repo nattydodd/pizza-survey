@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import AnswerField from './answer_field';
-
+import { connect } from 'react-redux';
 
 class Question extends Component {
 
@@ -9,6 +9,17 @@ class Question extends Component {
   handleActiveChange(newActive) {
     this.props.onNextClick(newActive);
     // triggers the handleNext function that is bound to the Question List component
+  }
+
+  handleResponse(data) {
+    this.props.onInputUpdate(
+      {
+        question : this.props.question.question,
+        answer: data,
+        style: this.props.question.style,
+        response_id: this.props.responseId
+      }
+    );
   }
 
 
@@ -27,7 +38,8 @@ class Question extends Component {
             id = {item.id}
             style = {item.style}
             options = {item.options}
-            disabledState = {this.props.activeQuestion === item.id ? false : true } />
+            disabledState = {this.props.activeQuestion === item.id ? false : true }
+            onInputUpdate = {this.handleResponse.bind(this)} />
 
           <button
             className={item.id === 1 ? 'no-button' : 'btn btn-primary'}
@@ -50,4 +62,10 @@ class Question extends Component {
 }
 
 
-export default Question;
+function mapStateToProps(state) {
+  return {
+    responseId : state.responseId
+  }
+}
+
+export default connect(mapStateToProps)(Question);
