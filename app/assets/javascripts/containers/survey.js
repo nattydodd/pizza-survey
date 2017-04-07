@@ -24,7 +24,8 @@ export class Survey extends Component {
      this.props.createResponseId(props);
    }
 
-   componentDidReceiveProps(nextprops) {
+   componentWillReceiveProps(nextprops) {
+     console.log(nextprops);
      this.setState({
        responseId: nextprops.responseId
      });
