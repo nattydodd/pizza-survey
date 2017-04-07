@@ -11,7 +11,7 @@ class SideNav extends Component {
   renderSideNavItems(links) {
     return links.map((link, idx, array) => {
       return (
-        <div>
+        <div key={idx}>
           <p onClick={() => {this.handleActiveChange(idx + 1)}}>{idx + 1}</p>
         </div>
       );
@@ -22,7 +22,7 @@ class SideNav extends Component {
 
       return (
         <div className="sidenav">
-         {this.renderSideNavItems(this.props.questions)}
+          {this.renderSideNavItems(this.props.questions)}
         </div>
       );
 

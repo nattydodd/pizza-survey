@@ -47,7 +47,7 @@ class QuestionList extends Component {
 
       return (
         <div className="row">
-          <div className="container col-xs-10">
+          <div className="container col-xs-10 col-xs-offset-1">
             {this.renderList(this.props.questions)}
           </div>
           <div className="col-xs-1">
