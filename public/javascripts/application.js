@@ -14186,8 +14186,8 @@ var Question = function (_Component) {
 
   _createClass(Question, [{
     key: 'handleActiveChange',
-    value: function handleActiveChange() {
-      this.props.onNextClick(this.props.question.id + 1);
+    value: function handleActiveChange(newActive) {
+      this.props.onNextClick(newActive);
     }
   }, {
     key: 'render',
@@ -14228,7 +14228,17 @@ var Question = function (_Component) {
               {
                 className: 'btn btn-primary',
                 onClick: function onClick() {
-                  _this2.handleActiveChange();
+                  _this2.handleActiveChange(_this2.props.question.id - 1);
+                },
+                disabled: this.props.activeQuestion === this.props.question.id ? false : true },
+              'Back'
+            ),
+            _react2.default.createElement(
+              'button',
+              {
+                className: 'btn btn-primary',
+                onClick: function onClick() {
+                  _this2.handleActiveChange(_this2.props.question.id + 1);
                 },
                 disabled: this.props.activeQuestion === this.props.question.id ? false : true },
               'Next'

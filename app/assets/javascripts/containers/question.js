@@ -4,8 +4,8 @@ import AnswerField from '../components/answer_field';
 
 class Question extends Component {
 
-  handleActiveChange() {
-    this.props.onNextClick(this.props.question.id + 1);
+  handleActiveChange(newActive) {
+    this.props.onNextClick(newActive);
   }
 
 
@@ -25,7 +25,13 @@ class Question extends Component {
 
           <button
           className="btn btn-primary"
-          onClick={() => {this.handleActiveChange()}}
+          onClick={() => {this.handleActiveChange(this.props.question.id - 1)}}
+          disabled={this.props.activeQuestion === this.props.question.id ? false : true }>
+          Back
+          </button>
+          <button
+          className="btn btn-primary"
+          onClick={() => {this.handleActiveChange(this.props.question.id + 1)}}
           disabled={this.props.activeQuestion === this.props.question.id ? false : true }>
           Next
           </button>
