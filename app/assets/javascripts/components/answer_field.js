@@ -17,7 +17,6 @@ class AnswerField extends Component {
 
   displaySelectInputs(options) {
     return options.map((option) => {
-      console.log(option);
       return (
           <option key={option} value={option} disabled={this.props.disabledState}>{option}</option>
       );

@@ -24,13 +24,14 @@ class Question extends Component {
             disabledState = {this.props.activeQuestion === this.props.question.id ? false : true } />
 
           <button
-          className="btn btn-primary"
+          className={this.props.question.id === 1 ? 'no-button' : 'btn btn-primary'}
           onClick={() => {this.handleActiveChange(this.props.question.id - 1)}}
           disabled={this.props.activeQuestion === this.props.question.id ? false : true }>
           Back
           </button>
+
           <button
-          className="btn btn-primary"
+          className={this.props.lastQuestion === true ? 'no-button' : 'btn btn-primary'}
           onClick={() => {this.handleActiveChange(this.props.question.id + 1)}}
           disabled={this.props.activeQuestion === this.props.question.id ? false : true }>
           Next

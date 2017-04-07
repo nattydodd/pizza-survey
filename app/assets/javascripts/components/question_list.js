@@ -19,13 +19,14 @@ class QuestionList extends Component {
 
 
   renderList(questions) {
-    return questions.map((question) => {
+    return questions.map((question, idx, array) => {
       return (
         <Question
           key = {question.id}
           question = {question}
           onNextClick = {this.handleNext.bind(this)}
-          activeQuestion = {this.state.activeQuestion} />
+          activeQuestion = {this.state.activeQuestion}
+          lastQuestion = {idx === array.length - 1 ? true : false} />
       );
     });
   }
