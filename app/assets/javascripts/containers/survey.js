@@ -9,12 +9,30 @@ export class Survey extends Component {
     super(props)
 
     this.state = {
+      user: '',
+      responseId: null,
       response: []
     }
 
   }
 
   render() {
+
+    const { field: name, handleSubmit } = this.props
+
+    if (!this.state.responseId) {
+      return (
+        <div className="container">
+          <h2>Thanks for participating!</h2>
+          <h4>Please enter your name to get started</h4>
+
+          <form id="user-form">
+            <input type="text" placeholder="Name" className="form-control" value={this.state.value} onChange={this.handleChange} {...name} />
+            <button type="submit" className="btn btn-primary login-button">Start Survey</button>
+          </form>
+        </div>
+      );
+    }
 
       return (
         <div className="container">

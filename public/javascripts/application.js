@@ -14381,6 +14381,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Survey = undefined;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(4);
@@ -14410,6 +14412,8 @@ var Survey = exports.Survey = function (_Component) {
     var _this = _possibleConstructorReturn(this, (Survey.__proto__ || Object.getPrototypeOf(Survey)).call(this, props));
 
     _this.state = {
+      user: '',
+      responseId: null,
       response: []
     };
 
@@ -14419,6 +14423,37 @@ var Survey = exports.Survey = function (_Component) {
   _createClass(Survey, [{
     key: 'render',
     value: function render() {
+      var _props = this.props,
+          name = _props.field,
+          handleSubmit = _props.handleSubmit;
+
+
+      if (!this.state.responseId) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'container' },
+          _react2.default.createElement(
+            'h2',
+            null,
+            'Thanks for participating!'
+          ),
+          _react2.default.createElement(
+            'h4',
+            null,
+            'Please enter your name to get started'
+          ),
+          _react2.default.createElement(
+            'form',
+            { id: 'user-form' },
+            _react2.default.createElement('input', _extends({ type: 'text', placeholder: 'Name', className: 'form-control', value: this.state.value, onChange: this.handleChange }, name)),
+            _react2.default.createElement(
+              'button',
+              { type: 'submit', className: 'btn btn-primary login-button' },
+              'Start Survey'
+            )
+          )
+        );
+      }
 
       return _react2.default.createElement(
         'div',
@@ -31346,7 +31381,7 @@ var TopNav = function (_Component) {
                 _react2.default.createElement(
                   'a',
                   { href: '#' },
-                  'Link'
+                  'Take Survey'
                 )
               ),
               _react2.default.createElement(
@@ -31355,7 +31390,7 @@ var TopNav = function (_Component) {
                 _react2.default.createElement(
                   'a',
                   { href: '#' },
-                  'Link'
+                  'Results'
                 )
               )
             )

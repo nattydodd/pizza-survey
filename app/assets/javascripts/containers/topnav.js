@@ -21,8 +21,8 @@ class TopNav extends Component {
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav navbar-right">
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
+              <li><a href="#">Take Survey</a></li>
+              <li><a href="#">Results</a></li>
             </ul>
           </div>
 
