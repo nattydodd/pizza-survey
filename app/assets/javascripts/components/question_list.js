@@ -25,7 +25,7 @@ class QuestionList extends Component {
           key = {question.id}
           question = {question}
           onNextClick = {this.handleNext.bind(this)}
-          id = {question.id} />
+          activeQuestion = {this.state.activeQuestion} />
       );
     });
   }

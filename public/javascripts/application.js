@@ -14021,7 +14021,7 @@ var QuestionList = function (_Component) {
           key: question.id,
           question: question,
           onNextClick: _this2.handleNext.bind(_this2),
-          id: question.id });
+          activeQuestion: _this2.state.activeQuestion });
       });
     }
   }, {
@@ -30700,33 +30700,37 @@ var Question = function (_Component) {
           'div',
           { className: 'col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 question-container' },
           _react2.default.createElement(
-            'h2',
-            null,
-            this.props.question.question
-          ),
-          _react2.default.createElement(
-            'h4',
-            null,
-            this.props.question.description
-          ),
-          _react2.default.createElement(
-            'h5',
-            null,
-            this.props.question.style
-          ),
-          _react2.default.createElement(_answer_field2.default, {
-            id: this.props.question.id,
-            style: this.props.question.style,
-            options: this.props.question.options })
-        ),
-        _react2.default.createElement(
-          'button',
-          {
-            className: 'btn btn-primary',
-            onClick: function onClick() {
-              _this2.handleActiveChange();
-            } },
-          'Next'
+            'div',
+            { className: this.props.activeQuestion === this.props.question.id ? 'activeQuestion' : 'inactiveQuestion' },
+            _react2.default.createElement(
+              'h2',
+              null,
+              this.props.question.question
+            ),
+            _react2.default.createElement(
+              'h4',
+              null,
+              this.props.question.description
+            ),
+            _react2.default.createElement(
+              'h5',
+              null,
+              this.props.question.style
+            ),
+            _react2.default.createElement(_answer_field2.default, {
+              id: this.props.question.id,
+              style: this.props.question.style,
+              options: this.props.question.options }),
+            _react2.default.createElement(
+              'button',
+              {
+                className: 'btn btn-primary',
+                onClick: function onClick() {
+                  _this2.handleActiveChange();
+                } },
+              'Next'
+            )
+          )
         )
       );
     }

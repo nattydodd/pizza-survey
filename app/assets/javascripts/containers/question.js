@@ -13,19 +13,22 @@ class Question extends Component {
     return (
       <div className="row">
         <div className="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 question-container">
-         <h2>{this.props.question.question}</h2>
-         <h4>{this.props.question.description}</h4>
-         <h5>{this.props.question.style}</h5>
-         <AnswerField
-          id = {this.props.question.id}
-          style = {this.props.question.style}
-          options = {this.props.question.options} />
+          <div className={this.props.activeQuestion === this.props.question.id ? 'activeQuestion' : 'inactiveQuestion'}>
+           <h2>{this.props.question.question}</h2>
+           <h4>{this.props.question.description}</h4>
+           <h5>{this.props.question.style}</h5>
+           <AnswerField
+            id = {this.props.question.id}
+            style = {this.props.question.style}
+            options = {this.props.question.options} />
+
+          <button
+          className="btn btn-primary"
+          onClick={() => {this.handleActiveChange()}}>
+          Next
+          </button>
+          </div>
         </div>
-        <button
-        className="btn btn-primary"
-        onClick={() => {this.handleActiveChange()}}>
-        Next
-        </button>
       </div>
     );
   }
