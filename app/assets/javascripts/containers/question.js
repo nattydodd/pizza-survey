@@ -20,11 +20,13 @@ class Question extends Component {
            <AnswerField
             id = {this.props.question.id}
             style = {this.props.question.style}
-            options = {this.props.question.options} />
+            options = {this.props.question.options}
+            disabledState = {this.props.activeQuestion === this.props.question.id ? false : true } />
 
           <button
           className="btn btn-primary"
-          onClick={() => {this.handleActiveChange()}}>
+          onClick={() => {this.handleActiveChange()}}
+          disabled={this.props.activeQuestion === this.props.question.id ? false : true }>
           Next
           </button>
           </div>
@@ -33,5 +35,6 @@ class Question extends Component {
     );
   }
 }
+
 
 export default Question;

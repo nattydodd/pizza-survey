@@ -9,7 +9,7 @@ class AnswerField extends Component {
     return options.map((option) => {
       return (
         <div key={option}>
-          <input type="radio" value={option} /><label>{option}</label>
+          <input type="radio" value={option} disabled={this.props.disabledState}/><label>{option}</label>
         </div>
       );
     });
@@ -19,12 +19,12 @@ class AnswerField extends Component {
     return options.map((option) => {
       console.log(option);
       return (
-          <option key={option} value={option}>{option}</option>
+          <option key={option} value={option} disabled={this.props.disabledState}>{option}</option>
       );
     });
   }
 
- renderFields(style, options, id) {
+ renderFields(style, options) {
     if ( style === "multiple choice" ) {
       return (
           <fieldset>
@@ -35,7 +35,7 @@ class AnswerField extends Component {
 
     if ( style === "free text" ) {
       return (
-        <input type="text" />
+        <input type="text" disabled={this.props.disabledState}/>
       );
     }
 
