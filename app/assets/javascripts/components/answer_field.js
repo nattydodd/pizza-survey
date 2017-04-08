@@ -24,6 +24,7 @@ class AnswerField extends Component {
 
 
   handleMultipleInputChange(event) {
+  // collect the data for the array of selections
     let option = event.target.value;
     let valueArray = this.state.valueArray;
     let origArray = this.state.valueArray;
@@ -31,32 +32,30 @@ class AnswerField extends Component {
     let me = this;
 
     console.log(`orig state`, origArray);
-
+  // inner function checks if the array contains the selection already
+  // if it's there already, it will remove it (box has been unchecked)
     (function () {
       valueArray.map((value, idx, array) => {
           if (value === option) {
-            console.log(`match`);
             valueArray = array.splice(idx, 1);
           }
           return valueArray
-          console.log(`new array`, valueArray);
         });
-
+  // if it is a new selection, add it to the array
         if (!origArray.includes(option)) {
-          console.log(`new selection`, option);
           valueArray.push(option);
         }
         newArray = valueArray
-
+  // update the state so it can be used for the next selection
         sendState(me, newArray);
 
     })();
 
     function sendState(me, updatedArray) {
-      console.log(`sending state`, updatedArray);
+      // callback function to make sure the array data is collected first
       me.setState({value: updatedArray});
+      // bound function to parent classes
       me.props.onInputUpdate(me.state.valueArray);
-      console.log(`new state`, me.state.valueArray);
     }
 
   }
