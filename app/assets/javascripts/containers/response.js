@@ -1,6 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
 class Response extends Component {
 
@@ -46,7 +47,7 @@ class Response extends Component {
       );
     }
       return (
-        <div>
+        <div className={this.props.responseId === this.props.id ? 'user-response' : ''}>
           {this.renderQuestions(this.state.questions)}
         </div>
       );
@@ -54,5 +55,11 @@ class Response extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    responseId : state.responseId
+  }
+}
 
-export default (Response);
+
+export default connect(mapStateToProps)(Response);
