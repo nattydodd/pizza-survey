@@ -16382,6 +16382,10 @@ var _sidenav = __webpack_require__(171);
 
 var _sidenav2 = _interopRequireDefault(_sidenav);
 
+var _axios = __webpack_require__(150);
+
+var _axios2 = _interopRequireDefault(_axios);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -16420,7 +16424,6 @@ var QuestionList = function (_Component) {
     key: 'handleResponse',
     value: function handleResponse(data, id) {
       var response = this.state.response;
-
       response[id] = { data: data };
       // response needs to have seperate objects for each question
 
@@ -16438,7 +16441,21 @@ var QuestionList = function (_Component) {
   }, {
     key: 'sendResponse',
     value: function sendResponse(data) {
-      console.log(this.state.response);
+      var response = this.state.response;
+      response.shift();
+      var answer = [];
+      {/*remove first blank element from array
+         and refactor array so it just contains an array of data objects */}
+      answer = response.map(function (object) {
+        return object.data;
+      });
+
+      console.log(answer);
+      _axios2.default.post('api/v1/responses/' + this.props.responseId + '/questions.json', answer).then(function (response) {
+        console.log("success");
+      }).catch(function (response) {
+        console.log("fail");
+      });
     }
   }, {
     key: 'renderList',
@@ -35507,6 +35524,7 @@ var AnswerField = function (_Component) {
         return _react2.default.createElement(
           'select',
           { value: this.state.value, onChange: this.handleInputChange },
+          _react2.default.createElement('option', { 'default': true, disabled: true }),
           this.displaySelectInputs(options)
         );
       }

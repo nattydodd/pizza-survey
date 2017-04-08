@@ -2,6 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import Question from './question';
 import SideNav from './sidenav';
+import axios from 'axios';
 require('smoothscroll-polyfill').polyfill();
 
 
@@ -24,7 +25,6 @@ class QuestionList extends Component {
 
   handleResponse(data, id) {
     let response = this.state.response
-
     response[id] = { data }
     // response needs to have seperate objects for each question
 
@@ -40,7 +40,23 @@ class QuestionList extends Component {
   }
 
   sendResponse(data) {
-    console.log(this.state.response);
+    var response = this.state.response;
+    response.shift();
+    var answer = []
+    {/*remove first blank element from array
+      and refactor array so it just contains an array of data objects */}
+    answer = response.map((object) => {
+      return object.data
+    });
+
+    console.log(answer);
+    axios.post(`api/v1/responses/${this.props.responseId}/questions.json`, answer)
+      .then((response) => {
+        console.log("success");
+      })
+      .catch((response) => {
+        console.log("fail");
+      });
   }
 
   renderList(questions) {
