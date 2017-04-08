@@ -24,7 +24,7 @@ class Question extends Component {
 
     let response = {
       question : this.props.question.question,
-      answer: data,
+      answer: data.constructor === Array ? data.toString() : data, 
       style: this.props.question.style,
       response_id: this.props.responseId
     }
