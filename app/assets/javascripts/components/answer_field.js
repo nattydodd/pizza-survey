@@ -8,10 +8,12 @@ class AnswerField extends Component {
     super(props);
 
     this.state = {
-      value: ''
+      value: '',
+      valueArray: []
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleMultipleInputChange = this.handleMultipleInputChange.bind(this);
   }
 
   handleInputChange(event) {
@@ -19,11 +21,52 @@ class AnswerField extends Component {
     this.props.onInputUpdate(event.target.value);
   }
 
+
+
+  handleMultipleInputChange(event) {
+    let option = event.target.value;
+    let valueArray = this.state.valueArray;
+    let origArray = this.state.valueArray;
+    let newArray = [];
+    let me = this;
+
+    console.log(`orig state`, origArray);
+
+    (function () {
+      valueArray.map((value, idx, array) => {
+          if (value === option) {
+            console.log(`match`);
+            valueArray = array.splice(idx, 1);
+          }
+          return valueArray
+          console.log(`new array`, valueArray);
+        });
+
+        if (!origArray.includes(option)) {
+          console.log(`new selection`, option);
+          valueArray.push(option);
+        }
+        newArray = valueArray
+
+        sendState(me, newArray);
+
+    })();
+
+    function sendState(me, updatedArray) {
+      console.log(`sending state`, updatedArray);
+      me.setState({value: updatedArray});
+      me.props.onInputUpdate(me.state.valueArray);
+      console.log(`new state`, me.state.valueArray);
+    }
+
+  }
+
+
  displayRadioInputs(options) {
     return options.map((option) => {
       return (
         <div key={option}>
-          <input type="radio" value={option} disabled={this.props.disabledState}/><label>{option}</label>
+          <input type="checkbox" value={option} disabled={this.props.disabledState}/><label>{option}</label>
         </div>
       );
     });
@@ -40,7 +83,7 @@ class AnswerField extends Component {
  renderFields(style, options) {
     if ( style === "multiple choice" ) {
       return (
-          <fieldset value={this.state.value} onChange={this.handleInputChange}>
+          <fieldset value={this.state.value} onChange={this.handleMultipleInputChange}>
             {this.displayRadioInputs(options)}
           </fieldset>
       );

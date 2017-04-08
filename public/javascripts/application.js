@@ -16653,7 +16653,7 @@ var Survey = exports.Survey = function (_Component) {
           handleSubmit = _props.handleSubmit;
 
 
-      if (!this.state.responseId) {
+      if (this.state.responseId) {
         return _react2.default.createElement(
           'div',
           { className: 'container' },
@@ -16858,7 +16858,7 @@ exports.default = function () {
     id: 1,
     question: 'What are your favourite pizza toppings?',
     description: 'Choose as many as you like!',
-    options: ['pepperoni', 'pineapple', 'ham', 'bacon', 'mushrooms', 'green peppers', 'artichokes', 'olives', 'extra cheese', 'anchovies', 'no toppings'],
+    options: ['pepperoni', 'pineapple', 'ham', 'bacon', 'mushrooms', 'green peppers', 'artichokes', 'olives', 'extra cheese', 'anchovies'],
     style: 'multiple choice'
   }, {
     id: 2,
@@ -35406,10 +35406,12 @@ var AnswerField = function (_Component) {
     var _this = _possibleConstructorReturn(this, (AnswerField.__proto__ || Object.getPrototypeOf(AnswerField)).call(this, props));
 
     _this.state = {
-      value: ''
+      value: '',
+      valueArray: []
     };
 
     _this.handleInputChange = _this.handleInputChange.bind(_this);
+    _this.handleMultipleInputChange = _this.handleMultipleInputChange.bind(_this);
     return _this;
   }
 
@@ -35420,6 +35422,43 @@ var AnswerField = function (_Component) {
       this.props.onInputUpdate(event.target.value);
     }
   }, {
+    key: 'handleMultipleInputChange',
+    value: function handleMultipleInputChange(event) {
+      var option = event.target.value;
+      var valueArray = this.state.valueArray;
+      var origArray = this.state.valueArray;
+      var newArray = [];
+      var me = this;
+
+      console.log('orig state', origArray);
+
+      (function () {
+        valueArray.map(function (value, idx, array) {
+          if (value === option) {
+            console.log('match');
+            valueArray = array.splice(idx, 1);
+          }
+          return valueArray;
+          console.log('new array', valueArray);
+        });
+
+        if (!origArray.includes(option)) {
+          console.log('new selection', option);
+          valueArray.push(option);
+        }
+        newArray = valueArray;
+
+        sendState(me, newArray);
+      })();
+
+      function sendState(me, updatedArray) {
+        console.log('sending state', updatedArray);
+        me.setState({ value: updatedArray });
+        me.props.onInputUpdate(me.state.valueArray);
+        console.log('new state', me.state.valueArray);
+      }
+    }
+  }, {
     key: 'displayRadioInputs',
     value: function displayRadioInputs(options) {
       var _this2 = this;
@@ -35428,7 +35467,7 @@ var AnswerField = function (_Component) {
         return _react2.default.createElement(
           'div',
           { key: option },
-          _react2.default.createElement('input', { type: 'radio', value: option, disabled: _this2.props.disabledState }),
+          _react2.default.createElement('input', { type: 'checkbox', value: option, disabled: _this2.props.disabledState }),
           _react2.default.createElement(
             'label',
             null,
@@ -35456,7 +35495,7 @@ var AnswerField = function (_Component) {
       if (style === "multiple choice") {
         return _react2.default.createElement(
           'fieldset',
-          { value: this.state.value, onChange: this.handleInputChange },
+          { value: this.state.value, onChange: this.handleMultipleInputChange },
           this.displayRadioInputs(options)
         );
       }

@@ -35,7 +35,7 @@ export class Survey extends Component {
 
     const { fields: {name}, handleSubmit } = this.props;
 
-    if (!this.state.responseId) {
+    if (this.state.responseId) {
       return (
         <div className="container">
           <h2>Thanks for participating!</h2>

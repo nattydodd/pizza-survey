@@ -14,8 +14,7 @@ export default function() {
         'artichokes',
         'olives',
         'extra cheese',
-        'anchovies',
-        'no toppings'
+        'anchovies'
       ],
       style: 'multiple choice'
     },
