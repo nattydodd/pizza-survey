@@ -1,5 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
+import { Link } from 'react-router';
 
 class TopNav extends Component {
 
@@ -22,7 +23,7 @@ class TopNav extends Component {
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav navbar-right">
               <li><a href="#">Take Survey</a></li>
-              <li><a href="#">Results</a></li>
+              <li><Link to="/results">Results</Link></li>
             </ul>
           </div>
 

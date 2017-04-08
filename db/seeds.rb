@@ -10,4 +10,4 @@
 
 # Question.create(question: 'this is a question', answer: 'this is an answer', style: 'this is a multiple choice', response_id: 1)
 
-Answers = Question.create([{ question: 'this is a question', answer: 'this is an answer', style: 'this is a multiple choice', response_id: 2}, {question: 'this is a question', answer: 'this is an answer', style: 'this is a multiple choice', response_id: 2}])
+# Answers = Question.create([{ question: 'this is a question', answer: 'this is an answer', style: 'this is a multiple choice', response_id: 2}, {question: 'this is a question', answer: 'this is an answer', style: 'this is a multiple choice', response_id: 2}])
