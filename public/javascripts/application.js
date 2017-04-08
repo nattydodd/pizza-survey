@@ -17090,13 +17090,11 @@ var Survey = exports.Survey = function (_Component) {
   _createClass(Survey, [{
     key: 'onSubmit',
     value: function onSubmit(props) {
-      console.log(props);
       this.props.createResponseId(props);
     }
   }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextprops) {
-      console.log(nextprops);
       this.setState({
         responseId: nextprops.responseId
       });
@@ -17126,11 +17124,20 @@ var Survey = exports.Survey = function (_Component) {
           _react2.default.createElement(
             'form',
             { id: 'user-form', onSubmit: handleSubmit(this.onSubmit.bind(this)) },
-            _react2.default.createElement('input', _extends({ type: 'text', placeholder: 'Name', className: 'form-control' }, name)),
             _react2.default.createElement(
-              'button',
-              { type: 'submit', className: 'btn btn-primary login-button' },
-              'Start Survey'
+              'div',
+              { className: 'form-group ' + (name.touched && name.invalid ? 'has-danger' : '') },
+              _react2.default.createElement('input', _extends({ type: 'text', placeholder: 'Name', className: 'form-control' }, name)),
+              _react2.default.createElement(
+                'div',
+                { className: 'text-help' },
+                name.touched ? name.error : ''
+              ),
+              _react2.default.createElement(
+                'button',
+                { type: 'submit', className: 'btn btn-primary login-button' },
+                'Start Survey'
+              )
             )
           )
         );
@@ -17160,9 +17167,20 @@ function mapDispatchToProps(dispatch) {
   return (0, _redux.bindActionCreators)({ createResponseId: _index.createResponseId }, dispatch);
 }
 
+function validate(values) {
+  var errors = {};
+
+  if (!values.name) {
+    errors.name = 'You must enter a name';
+  }
+
+  return errors;
+}
+
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)((0, _reduxForm.reduxForm)({
   form: 'ResponseID',
-  fields: ['name']
+  fields: ['name'],
+  validate: validate
 })(Survey));
 
 /***/ }),

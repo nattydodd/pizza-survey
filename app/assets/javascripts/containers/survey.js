@@ -20,12 +20,10 @@ export class Survey extends Component {
   }
 
   onSubmit(props) {
-     console.log(props);
      this.props.createResponseId(props);
    }
 
    componentWillReceiveProps(nextprops) {
-     console.log(nextprops);
      this.setState({
        responseId: nextprops.responseId
      });
@@ -42,8 +40,13 @@ export class Survey extends Component {
           <h4>Please enter your name to get started</h4>
 
           <form id="user-form" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-            <input type="text" placeholder="Name" className="form-control" {...name} />
-            <button type="submit" className="btn btn-primary login-button">Start Survey</button>
+            <div className={`form-group ${name.touched && name.invalid ? 'has-danger' : ''}` }>
+              <input type="text" placeholder="Name" className="form-control" {...name} />
+              <div className="text-help">
+                {name.touched ? name.error : ''}
+              </div>
+              <button type="submit" className="btn btn-primary login-button">Start Survey</button>
+            </div>
           </form>
         </div>
       );
@@ -70,8 +73,19 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ createResponseId }, dispatch );
 }
 
+function validate(values) {
+  const errors = {};
+
+  if (!values.name) {
+    errors.name = 'You must enter a name';
+  }
+
+  return errors;
+}
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
   form: 'ResponseID',
-  fields: ['name']
+  fields: ['name'],
+  validate
 })(Survey));
