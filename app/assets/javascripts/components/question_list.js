@@ -1,12 +1,17 @@
 import React from 'react';
-import { Component } from 'react';
+import { Component, PropTypes } from 'react';
 import Question from './question';
 import SideNav from './sidenav';
 import axios from 'axios';
+import { Link } from 'react-router';
 require('smoothscroll-polyfill').polyfill();
 
 
 class QuestionList extends Component {
+
+  static contextTypes = {
+    router: PropTypes.object
+  };
 
   constructor(props) {
     super(props);
@@ -53,6 +58,7 @@ class QuestionList extends Component {
     axios.post(`api/v1/responses/${this.props.responseId}/questions.json`, answer)
       .then((response) => {
         console.log("success");
+        this.context.router.push('/thankyou');
       })
       .catch((response) => {
         console.log("fail");
