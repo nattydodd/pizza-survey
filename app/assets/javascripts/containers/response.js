@@ -1,7 +1,5 @@
 import React from 'react';
 import { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchResponse } from '../actions/index';
 import axios from 'axios';
 
 class Response extends Component {
@@ -56,10 +54,5 @@ class Response extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    response : state.response
-  }
-}
 
-export default connect(mapStateToProps, {fetchResponse})(Response);
+export default (Response);

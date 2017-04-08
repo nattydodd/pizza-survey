@@ -3164,10 +3164,9 @@ module.exports = reactProdInvariant;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.FETCH_RESPONSE = exports.FETCH_RESULTS = exports.CREATE_RESPONSE_ID = undefined;
+exports.FETCH_RESULTS = exports.CREATE_RESPONSE_ID = undefined;
 exports.createResponseId = createResponseId;
 exports.fetchResults = fetchResults;
-exports.fetchResponse = fetchResponse;
 
 var _axios = __webpack_require__(40);
 
@@ -3177,7 +3176,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var CREATE_RESPONSE_ID = exports.CREATE_RESPONSE_ID = 'CREATE_RESPONSE_ID';
 var FETCH_RESULTS = exports.FETCH_RESULTS = 'FETCH_RESULTS';
-var FETCH_RESPONSE = exports.FETCH_RESPONSE = 'FETCH_RESPONSE';
 
 function createResponseId(props) {
   var request = _axios2.default.post('api/v1/responses.json', props);
@@ -3193,15 +3191,6 @@ function fetchResults() {
 
   return {
     type: FETCH_RESULTS,
-    payload: request
-  };
-}
-
-function fetchResponse(id) {
-  var request = _axios2.default.get('api/v1/responses/' + id + '/questions.json');
-
-  return {
-    type: FETCH_RESPONSE,
     payload: request
   };
 }
@@ -16854,10 +16843,6 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(29);
-
-var _index = __webpack_require__(25);
-
 var _axios = __webpack_require__(40);
 
 var _axios2 = _interopRequireDefault(_axios);
@@ -16940,13 +16925,7 @@ var Response = function (_Component) {
   return Response;
 }(_react.Component);
 
-function mapStateToProps(state) {
-  return {
-    response: state.response
-  };
-}
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchResponse: _index.fetchResponse })(Response);
+exports.default = Response;
 
 /***/ }),
 /* 175 */
@@ -17317,18 +17296,13 @@ var _reducer_results = __webpack_require__(182);
 
 var _reducer_results2 = _interopRequireDefault(_reducer_results);
 
-var _reducer_response = __webpack_require__(180);
-
-var _reducer_response2 = _interopRequireDefault(_reducer_response);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var rootReducer = (0, _redux.combineReducers)({
   questions: _reducer_questions2.default,
   responseId: _reducer_response_id2.default,
   results: _reducer_results2.default,
-  form: _reduxForm.reducer,
-  response: _reducer_response2.default
+  form: _reduxForm.reducer
 });
 
 exports.default = rootReducer;
@@ -17373,32 +17347,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 180 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-exports.default = function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
-  var action = arguments[1];
-
-  switch (action.type) {
-    case _index.FETCH_RESPONSE:
-      return state = action.payload.data;
-  }
-  return state;
-};
-
-var _index = __webpack_require__(25);
-
-var INITIAL_STATE = null;
-
-/***/ }),
+/* 180 */,
 /* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
