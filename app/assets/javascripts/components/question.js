@@ -5,22 +5,33 @@ import { connect } from 'react-redux';
 
 class Question extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      response: {}
+    }
+  }
+
 
   handleActiveChange(newActive) {
     this.props.onNextClick(newActive);
+
     // triggers the handleNext function that is bound to the Question List component
   }
 
   handleResponse(data) {
-    this.props.onInputUpdate(
-      {
-        question : this.props.question.question,
-        answer: data,
-        style: this.props.question.style,
-        response_id: this.props.responseId
-      }
-    );
+
+    let response = {
+      question : this.props.question.question,
+      answer: data,
+      style: this.props.question.style,
+      response_id: this.props.responseId
+    }
+
+    this.props.onInputFinished(response, this.props.question.id);
   }
+
 
 
   render() {

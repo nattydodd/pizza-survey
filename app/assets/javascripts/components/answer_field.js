@@ -16,7 +16,7 @@ class AnswerField extends Component {
 
   handleInputChange(event) {
     this.setState({value: event.target.value});
-    this.props.onInputUpdate(this.state.value);  
+    this.props.onInputUpdate(event.target.value);
   }
 
  displayRadioInputs(options) {
@@ -40,7 +40,7 @@ class AnswerField extends Component {
  renderFields(style, options) {
     if ( style === "multiple choice" ) {
       return (
-          <fieldset>
+          <fieldset value={this.state.value} onChange={this.handleInputChange}>
             {this.displayRadioInputs(options)}
           </fieldset>
       );
@@ -54,7 +54,7 @@ class AnswerField extends Component {
 
     if ( style === "single answer" ) {
         return (
-          <select>
+          <select value={this.state.value} onChange={this.handleInputChange}>
             {this.displaySelectInputs(options)}
           </select>
        );

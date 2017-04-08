@@ -22,10 +22,13 @@ class QuestionList extends Component {
     this.scrollToElement(this.refs[newActive]);
   }
 
-  handleResponse(data) {
-    this.setState({
-      response: [ data ]
-    });
+  handleResponse(data, id) {
+    let response = this.state.response
+
+    response[id] = { data }
+    // response needs to have seperate objects for each question
+
+    this.setState({ response });
   }
 
   scrollToElement(pageElement) {
@@ -37,7 +40,7 @@ class QuestionList extends Component {
   }
 
   sendResponse(data) {
-    console.log(data);
+    console.log(this.state.response);
   }
 
   renderList(questions) {
@@ -49,7 +52,7 @@ class QuestionList extends Component {
             onNextClick = {this.handleNext.bind(this)}
             activeQuestion = {this.state.activeQuestion}
             lastQuestion = {idx === array.length - 1 ? true : false}
-            onInputUpdate = {this.handleResponse.bind(this)} />
+            onInputFinished = {this.handleResponse.bind(this)} />
          </div>
       );
     });
