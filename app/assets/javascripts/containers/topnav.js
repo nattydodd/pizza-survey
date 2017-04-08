@@ -17,12 +17,12 @@ class TopNav extends Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="#">Brand</a>
+            <Link to="/" className="navbar-brand">Logo</Link>
           </div>
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav navbar-right">
-              <li><a href="#">Take Survey</a></li>
+              <li><Link to="/survey">Take Survey</Link></li>
               <li><Link to="/results">Results</Link></li>
             </ul>
           </div>
