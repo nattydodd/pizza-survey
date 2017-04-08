@@ -24,7 +24,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Router, browserHistory } from 'react-router';
 import routes from './routes';
 import promise from 'redux-promise';
-// import App from './components/app';
+
 
 const createStoreWithMiddleware = applyMiddleware(
   promise
@@ -33,5 +33,5 @@ const createStoreWithMiddleware = applyMiddleware(
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <Router history={browserHistory} routes={routes} />
-  </Provider>  
+  </Provider>
 , document.getElementById('mount'));

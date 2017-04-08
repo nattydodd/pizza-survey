@@ -15309,8 +15309,6 @@ var _reduxPromise2 = _interopRequireDefault(_reduxPromise);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import App from './components/app';
-
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
