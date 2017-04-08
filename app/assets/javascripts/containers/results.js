@@ -16,7 +16,7 @@ class Results extends Component {
   renderResults(results) {
     return results.map((result) => {
       return (
-        <div>
+        <div key={result.id}>
           <h3>{result.name}</h3>
           <Response id = {result.id} />
         </div>

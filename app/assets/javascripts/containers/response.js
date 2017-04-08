@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import { fetchResponse } from '../actions/index';
 import axios from 'axios';
 
-class Results extends Component {
+class Response extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      response: {}
+      questions: null
     }
   }
 
@@ -19,27 +19,37 @@ class Results extends Component {
     axios.get(`api/v1/responses/${this.props.id}/questions.json`)
       .then((response) => {
         this.setState({
-          response: response
+          questions: response.data
         });
       })
       .catch((response) => {
         this.setState({
-          response: null
+          questions: null
         });
       });
   }
 
+  renderQuestions(questions) {
+    return questions.map((question) => {
+      return (
+        <div key={question.id}>
+          <h2>{question.question}</h2>
+          <h3>{question.answer}</h3>
+        </div>
+      );
+    });
+  }
+
 
   render() {
-    if (!this.state.response) {
+    if (!this.state.questions) {
       return (
         <div>Loading...</div>
       );
     }
       return (
         <div>
-          <h2>{this.state.response.question}</h2>
-          <h3>{this.state.response.answer}</h3>
+          {this.renderQuestions(this.state.questions)}
         </div>
       );
 
@@ -52,4 +62,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {fetchResponse})(Results);
+export default connect(mapStateToProps, {fetchResponse})(Response);

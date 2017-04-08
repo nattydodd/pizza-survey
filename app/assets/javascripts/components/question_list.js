@@ -55,14 +55,17 @@ class QuestionList extends Component {
     });
 
     console.log(answer);
-    axios.post(`api/v1/responses/${this.props.responseId}/questions.json`, answer)
-      .then((response) => {
-        console.log("success");
-        this.context.router.push('/thankyou');
-      })
-      .catch((response) => {
-        console.log("fail");
-      });
+    answer.forEach((question) => {
+      axios.post(`api/v1/responses/${this.props.responseId}/questions.json`, question)
+        .then((response) => {
+          console.log("success");
+          this.context.router.push('/thankyou');
+        })
+        .catch((response) => {
+          console.log("fail");
+        });
+    })
+
   }
 
   renderList(questions) {
