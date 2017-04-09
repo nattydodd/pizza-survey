@@ -31,6 +31,15 @@ label {
   height: 70vh;
   margin-top: 30vh; }
 
+.answer-status-none {
+  display: none; }
+
+.answer-status {
+  color: #ff3d3d; }
+
+.answer-status-icon {
+  color: #ff3d3d !important; }
+
 .button-container {
   text-align: center; }
 

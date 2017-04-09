@@ -44,6 +44,17 @@ class QuestionList extends Component {
     });
   }
 
+  calculateEmptyResponses() {
+    var responses = this.state.response;
+    console.log(responses)
+    var filtered = responses.filter((n) => {
+      return n != null && n.data.answer != ""
+    });
+    var unAnswered = this.props.questions.length - filtered.length;
+
+    return unAnswered;
+  }
+
   sendResponse(data) {
     var response = this.state.response;
     response.shift();
@@ -90,7 +101,11 @@ class QuestionList extends Component {
           <div className="container col-xs-10 col-xs-offset-1 question-list-inner">
             {this.renderList(this.props.questions)}
             <div className="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 final-submit" ref={this.props.questions.length + 1}>
-              <h1 className="final-submit-title">All Finished? You Can Submit Your Survey Response below.</h1>
+              <h2 className="final-submit-title">All Finished? You Can Submit Your Survey Response below.</h2>
+              <p className={this.calculateEmptyResponses() === 0 ? 'answer-status-none' : 'answer-status'}>
+                <i className="answer-status-icon fa fa-exclamation-circle" aria-hidden="true"></i>
+                &nbsp;&nbsp;You have {this.calculateEmptyResponses()} unanswered questions!
+              </p>
               <button className="btn btn-primary" onClick={() => this.handleNext(this.props.questions.length) }>Back</button>
               <button className="btn btn-primary" onClick={() => this.sendResponse(this.state.response) }>Submit!</button>
             </div>

@@ -5,3 +5,15 @@
   height: 70vh;
   margin-top: 30vh;
 }
+
+.answer-status-none {
+  display: none;
+}
+
+.answer-status {
+  color: $primary2;
+}
+
+.answer-status-icon {
+  color: $primary2 !important;
+}

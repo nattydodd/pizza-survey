@@ -16772,6 +16772,18 @@ var QuestionList = function (_Component) {
       });
     }
   }, {
+    key: 'calculateEmptyResponses',
+    value: function calculateEmptyResponses() {
+      var responses = this.state.response;
+      console.log(responses);
+      var filtered = responses.filter(function (n) {
+        return n != null && n.data.answer != "";
+      });
+      var unAnswered = this.props.questions.length - filtered.length;
+
+      return unAnswered;
+    }
+  }, {
     key: 'sendResponse',
     value: function sendResponse(data) {
       var _this2 = this;
@@ -16829,9 +16841,17 @@ var QuestionList = function (_Component) {
             'div',
             { className: 'col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 final-submit', ref: this.props.questions.length + 1 },
             _react2.default.createElement(
-              'h1',
+              'h2',
               { className: 'final-submit-title' },
               'All Finished? You Can Submit Your Survey Response below.'
+            ),
+            _react2.default.createElement(
+              'p',
+              { className: this.calculateEmptyResponses() === 0 ? 'answer-status-none' : 'answer-status' },
+              _react2.default.createElement('i', { className: 'answer-status-icon fa fa-exclamation-circle', 'aria-hidden': 'true' }),
+              '\xA0\xA0You have ',
+              this.calculateEmptyResponses(),
+              ' unanswered questions!'
             ),
             _react2.default.createElement(
               'button',
