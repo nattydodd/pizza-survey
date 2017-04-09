@@ -1,32 +1,82 @@
+$primary1: #00DDB5;
+$primary1_darken: #00c39a;
+$secondary1: #e7f7fb;
+$secondary2: #fff9ee;
+
+$font_regular: 'Palanquin', sans-serif;
+$font_bold: 'Palanquin Dark', sans-serif;
+
+
 html {
   font-size: 62.5%;
 }
 body {
   font-size: 1.4rem;  /* =14px */
+  font-family: $font_regular !important;
 }
-h1 {
+h1, h2, h3 {
   font-size: 2.4rem; /* =24px */
+  font-family: $font_bold !important;
 }
 
 .btn-primary {
-  background: red !important;
+  background: $primary1 !important;
+  border-color: $primary1_darken !important;
+  margin-right: 5px !important;
 }
 
-// Question Component
+.navbar-default {
+  background-color: $secondary2 !important;
+}
+
+
+
+// Survey
+
+#user-form {
+  input {
+    margin-bottom: 15px !important;
+  }
+}
+
+.signup {
+  border-radius: 6px;
+  margin-top: 40px;
+}
+
+label {
+  padding-left: 10px;
+}
+
+
+
+// Question-List Component
+
+.final-submit {
+  text-align: center;
+  height: 70vh;
+  margin-top: 30vh;
+}
+
+// Question component
+
+.button-container {
+  text-align: center;
+}
 
 .question-container {
-  height: 75vh;
+  height: 95vh;
   padding-top: 5vh;
   h2 {
     text-align: center;
   }
 }
 
-.final-submit {
-  text-align: center;
+.question-question {
+  padding-bottom: 15px;
 }
 
-.inactiveQuestion {
+.isInActive {
   opacity: 0.4;
 }
 
@@ -34,15 +84,30 @@ h1 {
   display: none;
 }
 
+.free-text {
+  width: 100%;
+  border-style: groove;
+  height: 30px;
+  border-radius: 5px;
+}
+
+// AnswerField component
+
+.answer-field-container {
+  margin-bottom: 10px;
+}
+
+
 // SideNav
 
 .sidenav {
-  background: #337ab7;
+  background: $primary1;
   height: 86vh;
   position: fixed;
   width: 30px;
+  border-radius: 15px;
   p {
-    margin: 15vh 0;
+    margin: 12vh 0;
     text-align: center;
   }
 }
@@ -51,4 +116,9 @@ h1 {
 
 .user-response {
   background: lightblue;
+}
+
+// Home
+.welcome {
+  text-align: center;
 }

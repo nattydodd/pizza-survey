@@ -36,18 +36,20 @@ export class Survey extends Component {
     if (!this.state.responseId) {
       return (
         <div className="container">
-          <h2>Thanks for participating!</h2>
-          <h4>Please enter your name to get started</h4>
+          <div className="col-md-6 col-md-offset-3 signup">
+            <h2>Thanks for participating!</h2>
+            <h4>Please enter your name to get started</h4>
 
-          <form id="user-form" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-            <div className={`form-group ${name.touched && name.invalid ? 'has-danger' : ''}` }>
-              <input type="text" placeholder="Name" className="form-control" {...name} />
-              <div className="text-help">
-                {name.touched ? name.error : ''}
+            <form id="user-form" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+              <div className={`form-group ${name.touched && name.invalid ? 'has-danger' : ''}` }>
+                <input type="text" placeholder="Name" className="form-control" {...name} />
+                <div className="text-help">
+                  {name.touched ? name.error : ''}
+                </div>
+                <button type="submit" className="btn btn-primary login-button">Start Survey</button>
               </div>
-              <button type="submit" className="btn btn-primary login-button">Start Survey</button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       );
     }

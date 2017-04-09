@@ -16300,7 +16300,7 @@ var AnswerField = function (_Component) {
       }
 
       if (style === "free text") {
-        return _react2.default.createElement('input', { type: 'text', disabled: this.props.disabledState, value: this.state.value, onChange: this.handleInputChange });
+        return _react2.default.createElement('input', { className: 'free-text', type: 'text', disabled: this.props.disabledState, value: this.state.value, onChange: this.handleInputChange });
       }
 
       if (style === "single answer") {
@@ -16317,7 +16317,7 @@ var AnswerField = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'answer-field-container' },
         this.renderFields(this.props.style, this.props.options)
       );
     }
@@ -16425,8 +16425,12 @@ var Home = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'sidenav' },
-        'Welcome to the Pizza Survey!',
+        { className: 'col-xs-10 col-xs-offset-1 welcome' },
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Welcome to the Pizza Survey!'
+        ),
         _react2.default.createElement(
           _reactRouter.Link,
           { to: '/survey', className: 'btn btn-primary' },
@@ -16521,21 +16525,16 @@ var Question = function (_Component) {
           { className: 'col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 question-container' },
           _react2.default.createElement(
             'div',
-            { className: this.props.activeQuestion === item.id ? 'activeQuestion' : 'inactiveQuestion' },
+            { className: this.props.activeQuestion === item.id ? 'question isActive' : 'question isInActive' },
             _react2.default.createElement(
               'h2',
-              null,
+              { className: 'question-question' },
               item.question
             ),
             _react2.default.createElement(
               'h4',
-              null,
+              { className: 'question-description' },
               item.description
-            ),
-            _react2.default.createElement(
-              'h5',
-              null,
-              item.style
             ),
             _react2.default.createElement(_answer_field2.default, {
               id: item.id,
@@ -16544,24 +16543,28 @@ var Question = function (_Component) {
               disabledState: this.props.activeQuestion === item.id ? false : true,
               onInputUpdate: this.handleResponse.bind(this) }),
             _react2.default.createElement(
-              'button',
-              {
-                className: item.id === 1 ? 'no-button' : 'btn btn-primary',
-                onClick: function onClick() {
-                  _this2.handleActiveChange(item.id - 1);
-                },
-                disabled: this.props.activeQuestion === item.id ? false : true },
-              'Back'
-            ),
-            _react2.default.createElement(
-              'button',
-              {
-                className: this.props.lastQuestion === true ? 'no-button' : 'btn btn-primary',
-                onClick: function onClick() {
-                  _this2.handleActiveChange(item.id + 1);
-                },
-                disabled: this.props.activeQuestion === item.id ? false : true },
-              'Next'
+              'div',
+              { className: 'button-container' },
+              _react2.default.createElement(
+                'button',
+                {
+                  className: item.id === 1 ? 'no-button' : 'btn btn-primary',
+                  onClick: function onClick() {
+                    _this2.handleActiveChange(item.id - 1);
+                  },
+                  disabled: this.props.activeQuestion === item.id ? false : true },
+                'Back'
+              ),
+              _react2.default.createElement(
+                'button',
+                {
+                  className: 'btn btn-primary',
+                  onClick: function onClick() {
+                    _this2.handleActiveChange(item.id + 1);
+                  },
+                  disabled: this.props.activeQuestion === item.id ? false : true },
+                'Next'
+              )
             )
           )
         )
@@ -16719,7 +16722,19 @@ var QuestionList = function (_Component) {
           this.renderList(this.props.questions),
           _react2.default.createElement(
             'div',
-            { className: 'final-submit' },
+            { className: 'col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 final-submit', ref: this.props.questions.length + 1 },
+            _react2.default.createElement(
+              'h1',
+              null,
+              'All Finished? You Can Submit Your Survey Response below.'
+            ),
+            _react2.default.createElement(
+              'button',
+              { className: 'btn btn-primary', onClick: function onClick() {
+                  return _this4.handleNext(_this4.props.questions.length);
+                } },
+              'Back'
+            ),
             _react2.default.createElement(
               'button',
               { className: 'btn btn-primary', onClick: function onClick() {
@@ -16810,11 +16825,23 @@ var SideNav = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
 
       return _react2.default.createElement(
         'div',
         { className: 'sidenav' },
-        this.renderSideNavItems(this.props.questions)
+        this.renderSideNavItems(this.props.questions),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'p',
+            { onClick: function onClick() {
+                _this3.handleActiveChange(_this3.props.questions.length + 1);
+              } },
+            _react2.default.createElement('i', { className: 'fa fa-paper-plane', 'aria-hidden': 'true' })
+          )
+        )
       );
     }
   }]);
@@ -17178,31 +17205,35 @@ var Survey = exports.Survey = function (_Component) {
           'div',
           { className: 'container' },
           _react2.default.createElement(
-            'h2',
-            null,
-            'Thanks for participating!'
-          ),
-          _react2.default.createElement(
-            'h4',
-            null,
-            'Please enter your name to get started'
-          ),
-          _react2.default.createElement(
-            'form',
-            { id: 'user-form', onSubmit: handleSubmit(this.onSubmit.bind(this)) },
+            'div',
+            { className: 'col-md-6 col-md-offset-3 signup' },
             _react2.default.createElement(
-              'div',
-              { className: 'form-group ' + (name.touched && name.invalid ? 'has-danger' : '') },
-              _react2.default.createElement('input', _extends({ type: 'text', placeholder: 'Name', className: 'form-control' }, name)),
+              'h2',
+              null,
+              'Thanks for participating!'
+            ),
+            _react2.default.createElement(
+              'h4',
+              null,
+              'Please enter your name to get started'
+            ),
+            _react2.default.createElement(
+              'form',
+              { id: 'user-form', onSubmit: handleSubmit(this.onSubmit.bind(this)) },
               _react2.default.createElement(
                 'div',
-                { className: 'text-help' },
-                name.touched ? name.error : ''
-              ),
-              _react2.default.createElement(
-                'button',
-                { type: 'submit', className: 'btn btn-primary login-button' },
-                'Start Survey'
+                { className: 'form-group ' + (name.touched && name.invalid ? 'has-danger' : '') },
+                _react2.default.createElement('input', _extends({ type: 'text', placeholder: 'Name', className: 'form-control' }, name)),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'text-help' },
+                  name.touched ? name.error : ''
+                ),
+                _react2.default.createElement(
+                  'button',
+                  { type: 'submit', className: 'btn btn-primary login-button' },
+                  'Start Survey'
+                )
               )
             )
           )

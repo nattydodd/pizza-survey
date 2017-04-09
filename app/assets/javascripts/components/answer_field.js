@@ -90,7 +90,7 @@ class AnswerField extends Component {
 
     if ( style === "free text" ) {
       return (
-        <input type="text" disabled={this.props.disabledState} value={this.state.value} onChange={this.handleInputChange}/>
+        <input className="free-text" type="text" disabled={this.props.disabledState} value={this.state.value} onChange={this.handleInputChange}/>
       );
     }
 
@@ -107,7 +107,7 @@ class AnswerField extends Component {
 
   render() {
     return (
-      <div>
+      <div className="answer-field-container">
         {this.renderFields(this.props.style, this.props.options)}
       </div>
     )

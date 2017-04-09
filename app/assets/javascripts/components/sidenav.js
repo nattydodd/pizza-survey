@@ -23,6 +23,11 @@ class SideNav extends Component {
       return (
         <div className="sidenav">
           {this.renderSideNavItems(this.props.questions)}
+          <div>
+            <p onClick={() => {this.handleActiveChange(this.props.questions.length + 1)}}>
+              <i className="fa fa-paper-plane" aria-hidden="true"></i>
+            </p>
+          </div>
         </div>
       );
 
