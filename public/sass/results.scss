@@ -2,8 +2,13 @@
 
 .results-title {
   text-align: center;
+  padding: 30px 0;
 }
 
 .user-response {
   background: lightblue;
+}
+
+.result-name {
+  color: $primary2;
 }

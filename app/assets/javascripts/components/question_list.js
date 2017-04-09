@@ -104,7 +104,7 @@ class QuestionList extends Component {
               <h2 className="final-submit-title">All Finished? You Can Submit Your Survey Response below.</h2>
               <p className={this.calculateEmptyResponses() === 0 ? 'answer-status-none' : 'answer-status'}>
                 <i className="answer-status-icon fa fa-exclamation-circle" aria-hidden="true"></i>
-                &nbsp;&nbsp;You have {this.calculateEmptyResponses()} unanswered questions!
+                &nbsp;&nbsp;You have {this.calculateEmptyResponses()} unanswered questions! Please complete the survey first.
               </p>
               <button className="btn btn-primary" onClick={() => this.handleNext(this.props.questions.length) }>Back</button>
               <button className="btn btn-primary" onClick={() => this.sendResponse(this.state.response) }>Submit!</button>

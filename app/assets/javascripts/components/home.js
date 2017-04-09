@@ -23,10 +23,10 @@ class Home extends Component {
 
             <div className="container">
               <div className="row detail detail-one">
-                <div className="col-xs-4 detail-left">
+                <div className="col-sm-4 detail-left">
                   <i className="detail-icon fa fa-share-square-o" aria-hidden="true"></i>
                 </div>
-                <div className="col-xs-7 detail-right">
+                <div className="col-sm-7 detail-right">
                   <h4 className="detail-title">
                     This survey app is reusable.
                   </h4>
@@ -40,10 +40,10 @@ class Home extends Component {
               </div>
 
               <div className="row detail detail-two">
-                <div className="col-xs-4 detail-left">
+                <div className="col-sm-4 detail-left">
                   <i className="detail-icon fa fa-mobile" aria-hidden="true"></i>
                 </div>
-                <div className="col-xs-7 detail-right">
+                <div className="col-sm-7 detail-right">
                   <h4 className="detail-title">
                     This survey is responsive and mobile-first.
                   </h4>
@@ -54,10 +54,10 @@ class Home extends Component {
               </div>
 
               <div className="row detail detail-two">
-                <div className="col-xs-4 detail-left">
+                <div className="col-sm-4 detail-left">
                   <i className="detail-icon fa fa-cogs" aria-hidden="true"></i>
                 </div>
-                <div className="col-xs-7 detail-right">
+                <div className="col-sm-7 detail-right">
                   <h4 className="detail-title">
                     This survey is built using Ruby on Rails and React.js.
                   </h4>
@@ -73,7 +73,7 @@ class Home extends Component {
                 </div>
               </div>
             </div>
-          </div>  
+          </div>
         );
 
       }

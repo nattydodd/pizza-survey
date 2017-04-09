@@ -16462,12 +16462,12 @@ var Home = function (_Component) {
             { className: 'row detail detail-one' },
             _react2.default.createElement(
               'div',
-              { className: 'col-xs-4 detail-left' },
+              { className: 'col-sm-4 detail-left' },
               _react2.default.createElement('i', { className: 'detail-icon fa fa-share-square-o', 'aria-hidden': 'true' })
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-xs-7 detail-right' },
+              { className: 'col-sm-7 detail-right' },
               _react2.default.createElement(
                 'h4',
                 { className: 'detail-title' },
@@ -16485,12 +16485,12 @@ var Home = function (_Component) {
             { className: 'row detail detail-two' },
             _react2.default.createElement(
               'div',
-              { className: 'col-xs-4 detail-left' },
+              { className: 'col-sm-4 detail-left' },
               _react2.default.createElement('i', { className: 'detail-icon fa fa-mobile', 'aria-hidden': 'true' })
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-xs-7 detail-right' },
+              { className: 'col-sm-7 detail-right' },
               _react2.default.createElement(
                 'h4',
                 { className: 'detail-title' },
@@ -16508,12 +16508,12 @@ var Home = function (_Component) {
             { className: 'row detail detail-two' },
             _react2.default.createElement(
               'div',
-              { className: 'col-xs-4 detail-left' },
+              { className: 'col-sm-4 detail-left' },
               _react2.default.createElement('i', { className: 'detail-icon fa fa-cogs', 'aria-hidden': 'true' })
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-xs-7 detail-right' },
+              { className: 'col-sm-7 detail-right' },
               _react2.default.createElement(
                 'h4',
                 { className: 'detail-title' },
@@ -16851,7 +16851,7 @@ var QuestionList = function (_Component) {
               _react2.default.createElement('i', { className: 'answer-status-icon fa fa-exclamation-circle', 'aria-hidden': 'true' }),
               '\xA0\xA0You have ',
               this.calculateEmptyResponses(),
-              ' unanswered questions!'
+              ' unanswered questions! Please complete the survey first.'
             ),
             _react2.default.createElement(
               'button',
@@ -17020,12 +17020,20 @@ var Thankyou = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'thankyou-component' },
-        'Thank-you for submitting your response!',
+        { className: 'container thankyou-component' },
         _react2.default.createElement(
-          _reactRouter.Link,
-          { to: '/results', className: 'btn btn-primary' },
-          'View Results'
+          'div',
+          { className: 'col-md-6 col-md-offset-3 thankyou-inner' },
+          _react2.default.createElement(
+            'h2',
+            { className: 'thankyou-title' },
+            'Thank-you for submitting your response!'
+          ),
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { to: '/results', className: 'btn btn-primary' },
+            'View Results'
+          )
         )
       );
     }
@@ -17102,15 +17110,18 @@ var Response = function (_Component) {
       return questions.map(function (question) {
         return _react2.default.createElement(
           'div',
-          { key: question.id },
+          { className: 'response-inner', key: question.id },
           _react2.default.createElement(
             'h4',
-            null,
+            { className: 'response-question' },
+            _react2.default.createElement('i', { className: 'response-icon fa fa-question-circle-o', 'aria-hidden': 'true' }),
+            '\xA0\xA0',
             question.question
           ),
           _react2.default.createElement(
-            'h5',
-            null,
+            'h4',
+            { className: 'response-answer' },
+            'Answer:  ',
             question.answer
           )
         );
@@ -17205,13 +17216,14 @@ var Results = function (_Component) {
       return results.map(function (result) {
         return _react2.default.createElement(
           'div',
-          { key: result.id },
+          { className: 'result', key: result.id },
           _react2.default.createElement(
             'h3',
-            null,
+            { className: 'result-name' },
             result.name
           ),
-          _react2.default.createElement(_response2.default, { id: result.id })
+          _react2.default.createElement(_response2.default, { id: result.id }),
+          _react2.default.createElement('hr', null)
         );
       });
     }
@@ -17580,7 +17592,7 @@ exports.default = function () {
   }, {
     id: 4,
     question: 'How would you rate this pizza survey? :)',
-    description: 'Please choose your rating (1 = Bad, 5 = Excellent)',
+    description: 'Please choose your rating (1 = Could Be Better, 5 = Excellent)',
     options: [1, 2, 3, 4, 5],
     style: 'single answer'
   }];

@@ -23,6 +23,9 @@ label {
   padding: 75px !important;
   color: #FF9800 !important; }
 
+.fa-mobile {
+  font-size: 68px !important; }
+
 .detail-title {
   color: #ff3d3d; }
 
@@ -64,11 +67,21 @@ label {
   height: 30px;
   border-radius: 5px; }
 
+.response-answer {
+  font-family: "Palanquin Dark", sans-serif; }
+
+.response-icon {
+  color: #FF9800 !important; }
+
 .results-title {
-  text-align: center; }
+  text-align: center;
+  padding: 30px 0; }
 
 .user-response {
   background: lightblue; }
+
+.result-name {
+  color: #ff3d3d; }
 
 .sidenav-component {
   background: #ff3d3d;
@@ -101,6 +114,19 @@ label {
 .signup {
   border-radius: 6px;
   margin-top: 40px; }
+
+.text-help {
+  color: #ff3d3d !important;
+  margin-bottom: 10px; }
+
+.thankyou-component {
+  text-align: center; }
+
+.thankyou-inner {
+  padding: 50px 0; }
+
+.thankyou-title {
+  margin-bottom: 30px; }
 
 .navbar-default {
   background-color: #fff9ee !important;

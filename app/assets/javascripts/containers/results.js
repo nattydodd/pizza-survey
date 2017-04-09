@@ -16,9 +16,10 @@ class Results extends Component {
   renderResults(results) {
     return results.map((result) => {
       return (
-        <div key={result.id}>
-          <h3>{result.name}</h3>
+        <div className="result" key={result.id}>
+          <h3 className="result-name">{result.name}</h3>
           <Response id = {result.id} />
+          <hr />
         </div>
       );
     });

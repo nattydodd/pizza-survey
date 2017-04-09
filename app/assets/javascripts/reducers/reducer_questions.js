@@ -47,7 +47,7 @@ export default function() {
     {
       id: 4,
       question: 'How would you rate this pizza survey? :)',
-      description: 'Please choose your rating (1 = Bad, 5 = Excellent)',
+      description: 'Please choose your rating (1 = Could Be Better, 5 = Excellent)',
       options: [
         1,
         2,

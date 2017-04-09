@@ -31,9 +31,14 @@ class Response extends Component {
   renderQuestions(questions) {
     return questions.map((question) => {
       return (
-        <div key={question.id}>
-          <h4>{question.question}</h4>
-          <h5>{question.answer}</h5>
+        <div className="response-inner" key={question.id}>
+          <h4 className="response-question">
+            <i className="response-icon fa fa-question-circle-o" aria-hidden="true"></i>
+            &nbsp;&nbsp;{question.question}
+          </h4>
+          <h4 className="response-answer">
+            Answer:  {question.answer}
+          </h4>
         </div>
       );
     });
