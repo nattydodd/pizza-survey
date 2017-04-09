@@ -41,7 +41,7 @@ class Question extends Component {
       <div className="row">
         <div className="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 question-container">
           <div className={this.props.activeQuestion === item.id ? 'question isActive' : 'question isInActive'}>
-           <h2 className="question-question">{item.question}</h2>
+           <h2 className="question-question">{item.id}. {item.question}</h2>
            <h4 className="question-description">{item.description}</h4>
            <AnswerField
             id = {item.id}

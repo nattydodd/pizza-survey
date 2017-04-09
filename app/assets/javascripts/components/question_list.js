@@ -87,10 +87,10 @@ class QuestionList extends Component {
 
       return (
         <div className="row">
-          <div className="container col-xs-10 col-xs-offset-1">
+          <div className="container question-list col-xs-10 col-xs-offset-1">
             {this.renderList(this.props.questions)}
             <div className="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 final-submit" ref={this.props.questions.length + 1}>
-              <h1>All Finished? You Can Submit Your Survey Response below.</h1>
+              <h1 className="final-submit-title">All Finished? You Can Submit Your Survey Response below.</h1>
               <button className="btn btn-primary" onClick={() => this.handleNext(this.props.questions.length) }>Back</button>
               <button className="btn btn-primary" onClick={() => this.sendResponse(this.state.response) }>Submit!</button>
             </div>
@@ -98,6 +98,7 @@ class QuestionList extends Component {
           <div className="col-xs-1">
             <SideNav
               questions = {this.props.questions}
+              activeQuestion = {this.state.activeQuestion}
               onNextClick = {this.handleNext.bind(this)} />
           </div>
         </div>

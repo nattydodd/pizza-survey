@@ -16425,16 +16425,20 @@ var Home = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'col-xs-10 col-xs-offset-1 welcome' },
+        { className: 'container home' },
         _react2.default.createElement(
-          'h1',
-          null,
-          'Welcome to the Pizza Survey!'
-        ),
-        _react2.default.createElement(
-          _reactRouter.Link,
-          { to: '/survey', className: 'btn btn-primary' },
-          'Take Survey'
+          'div',
+          { className: 'col-xs-10 col-xs-offset-1 welcome-wrapper' },
+          _react2.default.createElement(
+            'h1',
+            { className: 'welcome-title' },
+            'Welcome to the Pizza Survey!'
+          ),
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { to: '/survey', className: 'btn btn-primary' },
+            'Take Survey'
+          )
         )
       );
     }
@@ -16529,6 +16533,8 @@ var Question = function (_Component) {
             _react2.default.createElement(
               'h2',
               { className: 'question-question' },
+              item.id,
+              '. ',
               item.question
             ),
             _react2.default.createElement(
@@ -16718,14 +16724,14 @@ var QuestionList = function (_Component) {
         { className: 'row' },
         _react2.default.createElement(
           'div',
-          { className: 'container col-xs-10 col-xs-offset-1' },
+          { className: 'container question-list col-xs-10 col-xs-offset-1' },
           this.renderList(this.props.questions),
           _react2.default.createElement(
             'div',
             { className: 'col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 final-submit', ref: this.props.questions.length + 1 },
             _react2.default.createElement(
               'h1',
-              null,
+              { className: 'final-submit-title' },
               'All Finished? You Can Submit Your Survey Response below.'
             ),
             _react2.default.createElement(
@@ -16749,6 +16755,7 @@ var QuestionList = function (_Component) {
           { className: 'col-xs-1' },
           _react2.default.createElement(_sidenav2.default, {
             questions: this.props.questions,
+            activeQuestion: this.state.activeQuestion,
             onNextClick: this.handleNext.bind(this) })
         )
       );
@@ -16811,7 +16818,8 @@ var SideNav = function (_Component) {
       return links.map(function (link, idx, array) {
         return _react2.default.createElement(
           'div',
-          { key: idx },
+          { className: _this2.props.activeQuestion === idx + 1 ? 'navItem isActive' : 'navItem isInActive',
+            key: idx },
           _react2.default.createElement(
             'p',
             { onClick: function onClick() {
@@ -16977,12 +16985,12 @@ var Response = function (_Component) {
           'div',
           { key: question.id },
           _react2.default.createElement(
-            'h2',
+            'h4',
             null,
             question.question
           ),
           _react2.default.createElement(
-            'h3',
+            'h5',
             null,
             question.answer
           )
@@ -17101,10 +17109,10 @@ var Results = function (_Component) {
       }
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'container results' },
         _react2.default.createElement(
           'h1',
-          null,
+          { className: 'results-title' },
           'Results'
         ),
         this.renderResults(this.props.results)

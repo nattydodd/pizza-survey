@@ -34,8 +34,8 @@ class Results extends Component {
       );
     }
       return (
-        <div>
-          <h1>Results</h1>
+        <div className="container results">
+          <h1 className="results-title">Results</h1>
           {this.renderResults(this.props.results)}
         </div>
       );

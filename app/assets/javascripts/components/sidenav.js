@@ -11,7 +11,8 @@ class SideNav extends Component {
   renderSideNavItems(links) {
     return links.map((link, idx, array) => {
       return (
-        <div key={idx}>
+        <div className={this.props.activeQuestion === idx + 1 ? 'navItem isActive' : 'navItem isInActive'}
+         key={idx}>
           <p onClick={() => {this.handleActiveChange(idx + 1)}}>{idx + 1}</p>
         </div>
       );

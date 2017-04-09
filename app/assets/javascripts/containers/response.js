@@ -32,8 +32,8 @@ class Response extends Component {
     return questions.map((question) => {
       return (
         <div key={question.id}>
-          <h2>{question.question}</h2>
-          <h3>{question.answer}</h3>
+          <h4>{question.question}</h4>
+          <h5>{question.answer}</h5>
         </div>
       );
     });

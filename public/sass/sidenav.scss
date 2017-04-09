@@ -1,0 +1,23 @@
+// SideNav
+
+.sidenav {
+  background: $primary2;
+  height: 86vh;
+  position: fixed;
+  width: 30px;
+  border-radius: 15px;
+  p {
+    margin: 12vh 0;
+    text-align: center;
+  }
+}
+
+.navItem {
+  p {
+    color: black;
+  }
+}
+
+.navItem.isActive {
+  background: $primary3;
+}

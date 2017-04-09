@@ -1,0 +1,32 @@
+// Question component
+
+.button-container {
+  text-align: center;
+}
+
+.question-container {
+  height: 95vh;
+  padding-top: 5vh;
+  h2 {
+    text-align: center;
+  }
+}
+
+.question-question {
+  padding-bottom: 15px;
+}
+
+.question.isInActive {
+  opacity: 0.4;
+}
+
+.no-button {
+  display: none;
+}
+
+.free-text {
+  width: 100%;
+  border-style: groove;
+  height: 30px;
+  border-radius: 5px;
+}
