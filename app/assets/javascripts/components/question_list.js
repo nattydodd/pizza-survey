@@ -86,8 +86,8 @@ class QuestionList extends Component {
   render() {
 
       return (
-        <div className="row">
-          <div className="container question-list col-xs-10 col-xs-offset-1">
+        <div className="row question-list-component">
+          <div className="container col-xs-10 col-xs-offset-1 question-list-inner">
             {this.renderList(this.props.questions)}
             <div className="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 final-submit" ref={this.props.questions.length + 1}>
               <h1 className="final-submit-title">All Finished? You Can Submit Your Survey Response below.</h1>

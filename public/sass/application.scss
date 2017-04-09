@@ -5,6 +5,7 @@ $primary3: #FF9800;
 $primary3_darken: #e98b00;
 $secondary1: #e7f7fb;
 $secondary2: #fff9ee;
+$secondary3: #ffc3c3;
 
 $font_regular: 'Palanquin', sans-serif;
 $font_bold: 'Palanquin Dark', sans-serif;
@@ -38,4 +39,7 @@ h1, h2, h3 {
   background: $primary3 !important;
   border-color: $primary3_darken !important;
   margin-right: 5px !important;
+  &:hover {
+    background: $primary3_darken !important;
+  }
 }

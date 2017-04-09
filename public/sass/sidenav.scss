@@ -1,13 +1,14 @@
 // SideNav
 
-.sidenav {
+.sidenav-component {
   background: $primary2;
-  height: 86vh;
+  height: 80vh;
+  margin-top: 5vh;
   position: fixed;
-  width: 30px;
+  width: 24px;
   border-radius: 15px;
   p {
-    margin: 12vh 0;
+    margin: 11vh 0;
     text-align: center;
   }
 }
@@ -15,9 +16,20 @@
 .navItem {
   p {
     color: black;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
 .navItem.isActive {
   background: $primary3;
+}
+
+.sidenav-submit.isActive {
+  background: $primary3;
+}
+
+.sidenav-submit {
+  cursor: pointer;
 }

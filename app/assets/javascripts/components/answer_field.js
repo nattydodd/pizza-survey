@@ -107,7 +107,7 @@ class AnswerField extends Component {
 
   render() {
     return (
-      <div className="answer-field-container">
+      <div className="answer-field-component">
         {this.renderFields(this.props.style, this.props.options)}
       </div>
     )

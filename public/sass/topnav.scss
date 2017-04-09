@@ -1,3 +1,11 @@
 .navbar-default {
   background-color: $secondary2 !important;
+  margin-bottom: 0px !important;
+}
+
+.navbar-right li a {
+  color: $primary3 !important;
+  &:hover {
+    color: $primary2 !important;
+  }
 }

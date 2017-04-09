@@ -4,7 +4,7 @@
   text-align: center;
 }
 
-.question-container {
+.question-inner {
   height: 95vh;
   padding-top: 5vh;
   h2 {
@@ -12,11 +12,11 @@
   }
 }
 
-.question-question {
+.questionItem-question {
   padding-bottom: 15px;
 }
 
-.question.isInActive {
+.questionItem.isInActive {
   opacity: 0.4;
 }
 

@@ -7,7 +7,7 @@ class Thankyou extends Component {
     render() {
 
         return (
-          <div className="sidenav">
+          <div className="thankyou-component">
             Thank-you for submitting your response!
             <Link to="/results" className="btn btn-primary">
               View Results

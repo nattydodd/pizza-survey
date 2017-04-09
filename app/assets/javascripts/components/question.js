@@ -38,11 +38,11 @@ class Question extends Component {
     const item = this.props.question
 
     return (
-      <div className="row">
-        <div className="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 question-container">
-          <div className={this.props.activeQuestion === item.id ? 'question isActive' : 'question isInActive'}>
-           <h2 className="question-question">{item.id}. {item.question}</h2>
-           <h4 className="question-description">{item.description}</h4>
+      <div className="row question-component">
+        <div className="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 question-inner">
+          <div className={this.props.activeQuestion === item.id ? 'questionItem isActive' : 'questionItem isInActive'}>
+           <h2 className="questionItem-question">{item.id}. {item.question}</h2>
+           <h4 className="questionItem-description">{item.description}</h4>
            <AnswerField
             id = {item.id}
             style = {item.style}

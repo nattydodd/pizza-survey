@@ -1,4 +1,29 @@
 // Home
-.welcome-wrapper {
+.welcome {
   text-align: center;
+  background: $secondary3;
+  padding: 60px 0;
+}
+
+
+.welcome-arrow {
+  margin: 20px 0 !important;
+}
+
+.detail-right {
+  padding: 40px 0;
+}
+
+.detail-left {
+  text-align: center;
+}
+
+.detail-icon {
+  font-size: 50px !important;
+  padding: 75px !important;
+  color: $primary3 !important;
+}
+
+.detail-title {
+  color: $primary2;
 }

@@ -16317,7 +16317,7 @@ var AnswerField = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'answer-field-container' },
+        { className: 'answer-field-component' },
         this.renderFields(this.props.style, this.props.options)
       );
     }
@@ -16371,7 +16371,7 @@ var App = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'app' },
+        { className: 'app-component' },
         _react2.default.createElement(_topnav2.default, null),
         this.props.children
       );
@@ -16425,19 +16425,118 @@ var Home = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'container home' },
+        { className: 'home-component' },
         _react2.default.createElement(
           'div',
-          { className: 'col-xs-10 col-xs-offset-1 welcome-wrapper' },
+          { className: 'container-fluid welcome' },
           _react2.default.createElement(
-            'h1',
-            { className: 'welcome-title' },
-            'Welcome to the Pizza Survey!'
+            'div',
+            { className: 'col-xs-10 col-xs-offset-1 welcome-inner' },
+            _react2.default.createElement(
+              'h1',
+              { className: 'welcome-title' },
+              'Welcome to the Pizza Survey!'
+            ),
+            _react2.default.createElement(
+              'h4',
+              null,
+              'This survey was designed to collect your very important thoughts about pizza.'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'welcome-arrow' },
+              _react2.default.createElement('i', { className: 'fa fa-chevron-down', 'aria-hidden': 'true' })
+            ),
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/survey', className: 'btn btn-primary' },
+              'Take Survey'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'container' },
+          _react2.default.createElement(
+            'div',
+            { className: 'row detail detail-one' },
+            _react2.default.createElement(
+              'div',
+              { className: 'col-xs-4 detail-left' },
+              _react2.default.createElement('i', { className: 'detail-icon fa fa-share-square-o', 'aria-hidden': 'true' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-xs-7 detail-right' },
+              _react2.default.createElement(
+                'h4',
+                { className: 'detail-title' },
+                'This survey app is reusable.'
+              ),
+              _react2.default.createElement(
+                'p',
+                { className: 'detail-text' },
+                'Though this survey is about pizza, any list of survey questions can be entered into the reducer and this application will display the survey. Scalability: A form could be incorporated to collect the question data (question, description and style/type) from the user. It could be sent to the backend API and saved in the database, then fetched from the server instead of hardcoding it into the reducer.'
+              )
+            )
           ),
           _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/survey', className: 'btn btn-primary' },
-            'Take Survey'
+            'div',
+            { className: 'row detail detail-two' },
+            _react2.default.createElement(
+              'div',
+              { className: 'col-xs-4 detail-left' },
+              _react2.default.createElement('i', { className: 'detail-icon fa fa-mobile', 'aria-hidden': 'true' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-xs-7 detail-right' },
+              _react2.default.createElement(
+                'h4',
+                { className: 'detail-title' },
+                'This survey is responsive and mobile-first.'
+              ),
+              _react2.default.createElement(
+                'p',
+                { className: 'detail-text' },
+                'This application is simple and easy to use on any device. It uses webpack to bundle all javascript files to allow for fast loading times.'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'row detail detail-two' },
+            _react2.default.createElement(
+              'div',
+              { className: 'col-xs-4 detail-left' },
+              _react2.default.createElement('i', { className: 'detail-icon fa fa-cogs', 'aria-hidden': 'true' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-xs-7 detail-right' },
+              _react2.default.createElement(
+                'h4',
+                { className: 'detail-title' },
+                'This survey is built using Ruby on Rails and React.js.'
+              ),
+              _react2.default.createElement(
+                'p',
+                { className: 'detail-text' },
+                'Other libraries and frameworks include:',
+                _react2.default.createElement('br', null),
+                '\u2022 Webpack, Webpack Dev Server & Babel',
+                _react2.default.createElement('br', null),
+                '\u2022 Redux',
+                _react2.default.createElement('br', null),
+                '\u2022 Database: Postgresql',
+                _react2.default.createElement('br', null),
+                '\u2022 SASS',
+                _react2.default.createElement('br', null),
+                '\u2022 Yarn and npm',
+                _react2.default.createElement('br', null),
+                '\u2022 Mocha, Chai, Enzyme & Jsdom'
+              )
+            )
           )
         )
       );
@@ -16523,23 +16622,23 @@ var Question = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'row' },
+        { className: 'row question-component' },
         _react2.default.createElement(
           'div',
-          { className: 'col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 question-container' },
+          { className: 'col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 question-inner' },
           _react2.default.createElement(
             'div',
-            { className: this.props.activeQuestion === item.id ? 'question isActive' : 'question isInActive' },
+            { className: this.props.activeQuestion === item.id ? 'questionItem isActive' : 'questionItem isInActive' },
             _react2.default.createElement(
               'h2',
-              { className: 'question-question' },
+              { className: 'questionItem-question' },
               item.id,
               '. ',
               item.question
             ),
             _react2.default.createElement(
               'h4',
-              { className: 'question-description' },
+              { className: 'questionItem-description' },
               item.description
             ),
             _react2.default.createElement(_answer_field2.default, {
@@ -16721,10 +16820,10 @@ var QuestionList = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'row' },
+        { className: 'row question-list-component' },
         _react2.default.createElement(
           'div',
-          { className: 'container question-list col-xs-10 col-xs-offset-1' },
+          { className: 'container col-xs-10 col-xs-offset-1 question-list-inner' },
           this.renderList(this.props.questions),
           _react2.default.createElement(
             'div',
@@ -16837,11 +16936,11 @@ var SideNav = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'sidenav' },
+        { className: 'sidenav-component' },
         this.renderSideNavItems(this.props.questions),
         _react2.default.createElement(
           'div',
-          null,
+          { className: this.props.activeQuestion === this.props.questions.length + 1 ? 'sidenav-submit isActive' : 'sidenav-submit isInActive' },
           _react2.default.createElement(
             'p',
             { onClick: function onClick() {
@@ -16901,7 +17000,7 @@ var Thankyou = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'sidenav' },
+        { className: 'thankyou-component' },
         'Thank-you for submitting your response!',
         _react2.default.createElement(
           _reactRouter.Link,

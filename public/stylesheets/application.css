@@ -1,11 +1,30 @@
 label {
   padding-left: 10px; }
 
-.answer-field-container {
+.answer-field-component {
   margin-bottom: 10px; }
 
-.welcome-wrapper {
+.welcome {
+  text-align: center;
+  background: #ffc3c3;
+  padding: 60px 0; }
+
+.welcome-arrow {
+  margin: 20px 0 !important; }
+
+.detail-right {
+  padding: 40px 0; }
+
+.detail-left {
   text-align: center; }
+
+.detail-icon {
+  font-size: 50px !important;
+  padding: 75px !important;
+  color: #FF9800 !important; }
+
+.detail-title {
+  color: #ff3d3d; }
 
 .final-submit {
   text-align: center;
@@ -15,16 +34,16 @@ label {
 .button-container {
   text-align: center; }
 
-.question-container {
+.question-inner {
   height: 95vh;
   padding-top: 5vh; }
-  .question-container h2 {
+  .question-inner h2 {
     text-align: center; }
 
-.question-question {
+.questionItem-question {
   padding-bottom: 15px; }
 
-.question.isInActive {
+.questionItem.isInActive {
   opacity: 0.4; }
 
 .no-button {
@@ -42,21 +61,30 @@ label {
 .user-response {
   background: lightblue; }
 
-.sidenav {
+.sidenav-component {
   background: #ff3d3d;
-  height: 86vh;
+  height: 80vh;
+  margin-top: 5vh;
   position: fixed;
-  width: 30px;
+  width: 24px;
   border-radius: 15px; }
-  .sidenav p {
-    margin: 12vh 0;
+  .sidenav-component p {
+    margin: 11vh 0;
     text-align: center; }
 
 .navItem p {
   color: black; }
+  .navItem p:hover {
+    cursor: pointer; }
 
 .navItem.isActive {
   background: #FF9800; }
+
+.sidenav-submit.isActive {
+  background: #FF9800; }
+
+.sidenav-submit {
+  cursor: pointer; }
 
 #user-form input {
   margin-bottom: 15px !important; }
@@ -66,7 +94,13 @@ label {
   margin-top: 40px; }
 
 .navbar-default {
-  background-color: #fff9ee !important; }
+  background-color: #fff9ee !important;
+  margin-bottom: 0px !important; }
+
+.navbar-right li a {
+  color: #FF9800 !important; }
+  .navbar-right li a:hover {
+    color: #ff3d3d !important; }
 
 html {
   font-size: 62.5%; }
@@ -85,3 +119,5 @@ h1, h2, h3 {
   background: #FF9800 !important;
   border-color: #e98b00 !important;
   margin-right: 5px !important; }
+  .btn-primary:hover {
+    background: #e98b00 !important; }
