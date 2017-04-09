@@ -1,0 +1,40 @@
+html {
+  font-size: 62.5%; }
+
+body {
+  font-size: 1.4rem;
+  /* =14px */ }
+
+h1 {
+  font-size: 2.4rem;
+  /* =24px */ }
+
+.btn-primary {
+  background: red !important; }
+
+.question-container {
+  height: 75vh;
+  padding-top: 5vh; }
+  .question-container h2 {
+    text-align: center; }
+
+.final-submit {
+  text-align: center; }
+
+.inactiveQuestion {
+  opacity: 0.4; }
+
+.no-button {
+  display: none; }
+
+.sidenav {
+  background: #337ab7;
+  height: 86vh;
+  position: fixed;
+  width: 30px; }
+  .sidenav p {
+    margin: 15vh 0;
+    text-align: center; }
+
+.user-response {
+  background: lightblue; }

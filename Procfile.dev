@@ -1,4 +1,5 @@
 # foreman start -f Procfile.dev
 
 web: rails s
-webpack: webpack --config webpack.config.js --progress --colors --watch 
+webpack: webpack --config webpack.config.js --progress --colors --watch
+nodemon: nodemon -e scss -x node-sass --include-path scss public/sass/application.scss   public/stylesheets/application.css

@@ -16,24 +16,37 @@ Tools Used:
 
 Additional Dependencies:
 * react-router
+* redux-form
+* react-redux
+* redux-promise
+* axios
 
-To start dev server:
+Testing Libraries
+* Mocha
+* Chai
+* Enzyme
+* jsdom
+
+To Setup Dev Env:
+$ sudo npm install -g nodemon
+$ sudo npm install -g node-sass
 $ npm install webpack -g
-$ foreman start -f Procfile.dev
 
-To watch for CSS changes in development:
-$ npm run watch-css
+Dev Database Initialization:
+- Ensure postgresql is running locally
+$ Rails db:setup
+
+To Start Dev Server:
+$ foreman start -f Procfile.dev
 
 To run test suite:
 $ npm test
 
+
+
 ----
 
 * System dependencies
-
-
-* Database initialization
-
 
 * Services (job queues, cache servers, search engines, etc.)
 
