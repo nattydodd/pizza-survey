@@ -4,9 +4,13 @@ label {
 .answer-field-component {
   margin-bottom: 10px; }
 
+.answer-field-single {
+  text-align: center;
+  margin: 20px; }
+
 .welcome {
   text-align: center;
-  background: #ffc3c3;
+  background: #cfffd7;
   padding: 60px 0; }
 
 .welcome-arrow {
@@ -47,13 +51,16 @@ label {
   text-align: center; }
 
 .question-inner {
-  height: 95vh;
-  padding-top: 5vh; }
+  height: 90vh;
+  padding-top: 10vh; }
   .question-inner h2 {
     text-align: center; }
 
 .questionItem-question {
   padding-bottom: 15px; }
+
+.questionItem-description {
+  text-align: center; }
 
 .questionItem.isInActive {
   opacity: 0.4; }
@@ -73,6 +80,9 @@ label {
 .response-icon {
   color: #ff3d3d !important; }
 
+.fa-commenting {
+  color: #FF9800 !important; }
+
 .response-inner {
   padding: 0 10px; }
 
@@ -84,7 +94,7 @@ label {
   letter-spacing: 2px;
   border-radius: 3px;
   padding: 5px 10px;
-  background: #ffc3c3; }
+  background: #cfffd7; }
 
 .results-image img {
   max-width: 150px; }

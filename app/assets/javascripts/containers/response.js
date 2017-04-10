@@ -36,10 +36,10 @@ class Response extends Component {
             <i className="response-icon fa fa-question-circle-o" aria-hidden="true"></i>
             &nbsp;&nbsp;{question.question}
           </h4>
-          <p className="response-answer">
+          <h4 className="response-answer">
             <i className="fa fa-commenting" aria-hidden="true"></i>
             &nbsp;&nbsp;{question.answer}
-          </p>
+          </h4>
         </div>
       );
     });

@@ -16305,10 +16305,14 @@ var AnswerField = function (_Component) {
 
       if (style === "single answer") {
         return _react2.default.createElement(
-          'select',
-          { value: this.state.value, onChange: this.handleInputChange },
-          _react2.default.createElement('option', { 'default': true, disabled: true }),
-          this.displaySelectInputs(options)
+          'div',
+          { className: 'answer-field-single' },
+          _react2.default.createElement(
+            'select',
+            { value: this.state.value, onChange: this.handleInputChange },
+            _react2.default.createElement('option', { 'default': true, disabled: true }),
+            this.displaySelectInputs(options)
+          )
         );
       }
     }
@@ -17119,7 +17123,7 @@ var Response = function (_Component) {
             question.question
           ),
           _react2.default.createElement(
-            'p',
+            'h4',
             { className: 'response-answer' },
             _react2.default.createElement('i', { className: 'fa fa-commenting', 'aria-hidden': 'true' }),
             '\xA0\xA0',
@@ -17608,7 +17612,7 @@ exports.default = function () {
     style: 'free text'
   }, {
     id: 4,
-    question: 'How would you rate this pizza survey? :)',
+    question: 'How would you rate this pizza survey?',
     description: 'Please choose your rating (1 = Could Be Better, 5 = Excellent)',
     options: [1, 2, 3, 4, 5],
     style: 'single answer'

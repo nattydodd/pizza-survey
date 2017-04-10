@@ -96,10 +96,12 @@ class AnswerField extends Component {
 
     if ( style === "single answer" ) {
         return (
-          <select value={this.state.value} onChange={this.handleInputChange}>
-          <option default disabled></option>
-            {this.displaySelectInputs(options)}
-          </select>
+          <div className="answer-field-single">
+            <select value={this.state.value} onChange={this.handleInputChange}>
+            <option default disabled></option>
+              {this.displaySelectInputs(options)}
+            </select>
+          </div>
        );
     }
 
