@@ -3,7 +3,7 @@ import { Component } from 'react';
 import AnswerField from './answer_field';
 import { connect } from 'react-redux';
 
-class Question extends Component {
+export class Question extends Component {
 
   constructor(props) {
     super(props);

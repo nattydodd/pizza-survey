@@ -3,10 +3,12 @@ import React from 'react';
 import App from '../components/app';
 import configureMockStore from 'redux-mock-store';
 import { createStore, applyMiddleware } from 'redux';
-import promise from 'redux-promise';
 import { Provider } from 'react-redux';
+import promise from 'redux-promise';
 
 import TopNav from '../containers/topnav';
+import SideNav from '../components/sidenav';
+import { Question } from '../components/question';
 import ConnectedSurvey, { Survey } from '../containers/survey';
 import QuestionList from '../components/question_list';
 import reducers from '../reducers';
@@ -16,9 +18,47 @@ import { expect } from 'chai';
 import redux from 'redux';
 import nock from 'nock';
 
+
 const createStoreWithMiddleware = applyMiddleware(
   promise
 )(createStore);
+
+const testQuestion = [{
+    id: 3,
+    question: 'What is the name of your favourite pizza place?',
+    description: 'Please enter the name',
+    options: null,
+    style: 'free text'
+  },
+  {
+    id: 4,
+    question: 'How would you rate this pizza survey?',
+    description: 'Please choose your rating (1 = Could Be Better, 5 = Excellent)',
+    options: [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    style: 'single answer'
+  }
+]
+
+const testResponse = [
+  {
+    question: "test",
+    answer: "test",
+    style: "test",
+    response_id: 1
+  },
+  {
+    question: "test",
+    answer: "test",
+    style: "test",
+    response_id: 1
+  }
+]
 
 
 describe('App', function() {
@@ -47,32 +87,55 @@ describe('App', function() {
         );
         expect(wrapper.state.responseId).to.equal(undefined);
       });
-      it('should have a form with submit button that sends responseID to the API', function() {
-        const wrapper = shallow(<Survey/>);
-        wrapper.find('button').simulate('click');
-        // integrate nock
+      it('should have a form with submit button that sends name to the API, and returns a responseID', function() {
+        const wrapper = mount(
+          <Provider store={createStoreWithMiddleware(reducers)}>
+            <ConnectedSurvey />
+          </Provider>
+        );
+
+       expect(wrapper.props().handleSubmit).to.be.defined;
+       expect(wrapper.props().createResponseId).to.be.defined;
+
+        if (!wrapper.state.responseId) {
+
+          expect(wrapper.find('button')).to.have.length(1);
+
+          // need to test post request
+
+        }
+
       });
       it('should update the state of responseID after the form is submitted', function() {
         const wrapper = mount(<Survey/>);
         // integrate sinon and spy to test lifecycle
       });
-      it('should validate that the input is not empty', function() {
-
-      });
 
 
       describe('QuestionList', function() {
+        const wrapper = mount(
+            <Provider store={createStoreWithMiddleware(reducers)}>
+              <QuestionList questions = {testQuestion} />
+            </Provider>
+          );
+
+          wrapper.setState({
+            response : testResponse
+          })
+
         it('should render the SideNav component', function() {
-          const wrapper = shallow(<Survey/>);
           expect(wrapper.find(SideNav)).to.have.length(1);
         });
-        it('Should render a list of questions, equal to the length of the number of survey questions', function() {
 
+        it('Should render a list of questions, equal to the length of the number of survey questions', function() {
+            expect(wrapper.find(Question)).to.have.length(2);
+          });
+
+        it('Should show a message if there are unanswered questions', function() {
+            expect(wrapper.find('answer-status-none')).to.have.length(0);
         });
-        it('Should have an initial state of 1 for active question', function() {
-          const wrapper = shallow(<QuestionList/>);
-          expect(wrapper.state().activeQuestion).to.equal(1);
-        });
+
+
         it('Should update the state of active question if a SideNav button is clicked', function() {
 
         });
@@ -82,22 +145,23 @@ describe('App', function() {
         it('Should update the state of active question if a back button is clicked', function() {
 
         });
-        it('Should have an initial state of [] for responses', function() {
-
-        });
+        // it('Should have an initial state of [] for responses', function() {
+        //
+        // });
         it('Should have a submit button that sends the responses to the API', function() {
-
-        });
-        it('Should show how many questions are unanswered, unless they are all answered', function() {
 
         });
 
         describe('SideNav', function() {
+          const wrapper = mount(
+            <SideNav questions = {testQuestion} />
+          );
           it('Should have an initial state of 1 for activeLink', function() {
-
+            expect(wrapper.props().activeLink).to.equal(1);
           });
           it('Should have an onClick handler on each link', function() {
-
+            var link = wrapper.find('.isActive');
+            link.props().onClick().to.be.defined;
           });
           it('Should update the activeLink state if a link is clicked', function() {
 
@@ -105,14 +169,25 @@ describe('App', function() {
           it('Should update activeLink state every time the activeQuestion state is changed', function() {
 
           });
-          it('Should have an opacity of 1 for active links, and 0.5 fir inactive', function() {
 
-          });
         });
 
         describe('Question', function() {
-          it('Should have a back button, unless the question ID is 1', function() {
+          const wrapper = mount(
+                <Question
+                question = {testQuestion[0]}
+                activeQuestion = {1}
+                id = {2}
+                />
+            );
 
+          it('Should have an initial state of 1 for active question', function() {
+
+            expect(wrapper.props().activeQuestion).to.equal(1);
+          });
+
+          it('Should have a back button, unless the question ID is 1', function() {
+            expect(wrapper.find(''))
           });
           it('Should have a next button', function() {
 

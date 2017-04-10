@@ -144,7 +144,9 @@ label {
 
 .signup {
   border-radius: 6px;
-  margin-top: 40px; }
+  margin-top: 10vh;
+  background: #cfffd7;
+  padding: 10px 20px 20px; }
 
 .text-help {
   color: #ff3d3d !important;
