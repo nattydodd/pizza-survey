@@ -41,6 +41,7 @@ Dev Database Initialization:
 
 To Start Dev Server:
 * $ foreman start -f Procfile.dev
+* Separate window: $ npm run watch-css
 
 To run test suite:
 * $ npm test
