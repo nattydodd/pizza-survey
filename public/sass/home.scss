@@ -3,16 +3,25 @@
   text-align: center;
   background: $secondary3;
   padding: 60px 0;
+  margin-bottom: 30px;
 }
 
+// .welcome-arrow {
+//   margin: 20px 0 !important;
+// }
 
-.welcome-arrow {
-  margin: 20px 0 !important;
+.welcome-image img {
+  padding: 20px 0 25px;
 }
 
 .detail-right {
   padding: 40px 0;
 }
+
+.detail-middle {
+  padding-top: 65px !important;
+}
+
 
 .detail-left {
   text-align: center;
@@ -30,4 +39,13 @@
 
 .detail-title {
   color: $primary2;
+}
+
+@media (max-width: 767px) {
+  .welcome {
+    margin-bottom: 60px;
+  }
+  .detail-icon {
+    padding: 0px !important;
+  }
 }

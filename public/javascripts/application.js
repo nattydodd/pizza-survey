@@ -16448,8 +16448,8 @@ var Home = function (_Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'welcome-arrow' },
-              _react2.default.createElement('i', { className: 'fa fa-chevron-down', 'aria-hidden': 'true' })
+              { className: 'welcome-image' },
+              _react2.default.createElement('img', { src: 'http://i.imgur.com/jcDonWX.png' })
             ),
             _react2.default.createElement(
               _reactRouter.Link,
@@ -16494,7 +16494,7 @@ var Home = function (_Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-sm-7 detail-right' },
+              { className: 'col-sm-7 detail-right detail-middle' },
               _react2.default.createElement(
                 'h4',
                 { className: 'detail-title' },
@@ -17126,7 +17126,7 @@ var Response = function (_Component) {
           _react2.default.createElement(
             'h4',
             { className: 'response-answer' },
-            _react2.default.createElement('i', { className: 'fa fa-commenting', 'aria-hidden': 'true' }),
+            _react2.default.createElement('i', { className: 'fa fa-comment-o', 'aria-hidden': 'true' }),
             '\xA0\xA0',
             question.answer
           )
@@ -17397,6 +17397,11 @@ var Survey = exports.Survey = function (_Component) {
                 )
               )
             )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'col-xs-12 signup-image' },
+            _react2.default.createElement('img', { src: 'http://i.imgur.com/ttHnCkM.png' })
           )
         );
       }

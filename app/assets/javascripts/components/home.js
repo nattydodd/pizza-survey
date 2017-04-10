@@ -12,8 +12,8 @@ class Home extends Component {
               <div className="col-xs-10 col-xs-offset-1 welcome-inner">
                 <h1 className="welcome-title">Welcome to the Pizza Survey!</h1>
                 <h4>This survey was designed to collect your very important thoughts about pizza.</h4>
-                <div className="welcome-arrow">
-                  <i className="fa fa-chevron-down" aria-hidden="true"></i>
+                <div className="welcome-image">
+                  <img src="http://i.imgur.com/jcDonWX.png" />
                 </div>
                 <Link to="/survey" className="btn btn-primary">
                   Take Survey
@@ -43,7 +43,7 @@ class Home extends Component {
                 <div className="col-sm-4 detail-left">
                   <i className="detail-icon fa fa-mobile" aria-hidden="true"></i>
                 </div>
-                <div className="col-sm-7 detail-right">
+                <div className="col-sm-7 detail-right detail-middle">
                   <h4 className="detail-title">
                     This survey is responsive and mobile-first.
                   </h4>

@@ -50,6 +50,9 @@ export class Survey extends Component {
               </div>
             </form>
           </div>
+          <div className="col-xs-12 signup-image">
+            <img src="http://i.imgur.com/ttHnCkM.png" />
+          </div>
         </div>
       );
     }

@@ -37,7 +37,7 @@ class Response extends Component {
             &nbsp;&nbsp;{question.question}
           </h4>
           <h4 className="response-answer">
-            <i className="fa fa-commenting" aria-hidden="true"></i>
+            <i className="fa fa-comment-o" aria-hidden="true"></i>
             &nbsp;&nbsp;{question.answer}
           </h4>
         </div>

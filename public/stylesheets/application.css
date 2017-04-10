@@ -11,13 +11,17 @@ label {
 .welcome {
   text-align: center;
   background: #cfffd7;
-  padding: 60px 0; }
+  padding: 60px 0;
+  margin-bottom: 30px; }
 
-.welcome-arrow {
-  margin: 20px 0 !important; }
+.welcome-image img {
+  padding: 20px 0 25px; }
 
 .detail-right {
   padding: 40px 0; }
+
+.detail-middle {
+  padding-top: 65px !important; }
 
 .detail-left {
   text-align: center; }
@@ -32,6 +36,12 @@ label {
 
 .detail-title {
   color: #ff3d3d; }
+
+@media (max-width: 767px) {
+  .welcome {
+    margin-bottom: 60px; }
+  .detail-icon {
+    padding: 0px !important; } }
 
 .final-submit {
   text-align: center;
@@ -80,7 +90,7 @@ label {
 .response-icon {
   color: #ff3d3d !important; }
 
-.fa-commenting {
+.fa-comment-o {
   color: #FF9800 !important; }
 
 .response-inner {
@@ -145,12 +155,18 @@ label {
 .signup {
   border-radius: 6px;
   margin-top: 10vh;
-  background: #cfffd7;
+  background: #fff3dd;
   padding: 10px 20px 20px; }
 
 .text-help {
   color: #ff3d3d !important;
   margin-bottom: 10px; }
+
+.signup-image {
+  text-align: center; }
+  .signup-image img {
+    margin-top: 50px;
+    padding-right: 20px; }
 
 .thankyou-component {
   text-align: center; }
