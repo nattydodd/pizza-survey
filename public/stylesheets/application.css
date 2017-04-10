@@ -80,9 +80,6 @@ label {
   text-align: center;
   padding: 30px 0 0px; }
 
-.user-response {
-  background: lightblue; }
-
 .result-name {
   letter-spacing: 2px;
   border-radius: 3px;
@@ -119,7 +116,8 @@ label {
 .navItem p {
   color: black; }
   .navItem p:hover {
-    cursor: pointer; }
+    cursor: pointer;
+    color: white; }
 
 .navItem.isActive {
   background: #FF9800; }
@@ -127,8 +125,9 @@ label {
 .sidenav-submit.isActive {
   background: #FF9800; }
 
-.sidenav-submit {
-  cursor: pointer; }
+.sidenav-submit:hover {
+  cursor: pointer;
+  color: white !important; }
 
 #user-form input {
   margin-bottom: 15px !important; }
@@ -158,6 +157,12 @@ label {
   color: #FF9800 !important; }
   .navbar-right li a:hover {
     color: #ff3d3d !important; }
+
+.navbar-brand {
+  font-size: 16px !important;
+  color: #ff3d3d !important; }
+  .navbar-brand:hover {
+    color: black !important; }
 
 html {
   font-size: 62.5%; }

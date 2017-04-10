@@ -17499,7 +17499,7 @@ var TopNav = function (_Component) {
             _react2.default.createElement(
               _reactRouter.Link,
               { to: '/', className: 'navbar-brand' },
-              'Logo'
+              'Clark Dev Challenge'
             )
           ),
           _react2.default.createElement(

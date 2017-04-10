@@ -18,6 +18,7 @@
     color: black;
     &:hover {
       cursor: pointer;
+      color: white;
     }
   }
 }
@@ -30,6 +31,7 @@
   background: $primary3;
 }
 
-.sidenav-submit {
+.sidenav-submit:hover {
   cursor: pointer;
+  color: white !important;
 }
