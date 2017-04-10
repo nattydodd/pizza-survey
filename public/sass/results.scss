@@ -2,7 +2,7 @@
 
 .results-title {
   text-align: center;
-  padding: 30px 0;
+  padding: 30px 0 0px;
 }
 
 .user-response {
@@ -10,11 +10,10 @@
 }
 
 .result-name {
-  color: $primary2;
   letter-spacing: 2px;
-  background: #fce7c7;
   border-radius: 3px;
   padding: 5px 10px;
+  background: $secondary3;
 }
 
 .results-image img {
@@ -32,4 +31,9 @@
 .results-text {
   text-align: center;
   padding-bottom: 10px;
+}
+
+
+.results-icon {
+  color: $primary3;
 }

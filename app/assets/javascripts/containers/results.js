@@ -35,12 +35,19 @@ class Results extends Component {
       );
     }
       return (
-        <div className="container results">
-          <h2 className="results-title">
-            Results
-          </h2>
-          <p className="results-text">Thank you to all those who participated in this pizza study.</p> 
-          {this.renderResults(this.props.results)}
+        <div className="results-component">
+          <div className="container-fluid results">
+            <h1 className="results-title">
+              Results
+            </h1>
+            <p className="results-text">
+              Thank you to all those who participated in this pizza study.<br /><br />
+             <i className="results-icon fa fa-chevron-down" aria-hidden="true"></i>
+            </p>
+          </div>
+          <div className="col-md-8 col-md-offset-2 results-inner">
+            {this.renderResults(this.props.results)}
+          </div>
         </div>
       );
   }

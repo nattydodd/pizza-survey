@@ -17241,18 +17241,29 @@ var Results = function (_Component) {
       }
       return _react2.default.createElement(
         'div',
-        { className: 'container results' },
+        { className: 'results-component' },
         _react2.default.createElement(
-          'h2',
-          { className: 'results-title' },
-          'Results'
+          'div',
+          { className: 'container-fluid results' },
+          _react2.default.createElement(
+            'h1',
+            { className: 'results-title' },
+            'Results'
+          ),
+          _react2.default.createElement(
+            'p',
+            { className: 'results-text' },
+            'Thank you to all those who participated in this pizza study.',
+            _react2.default.createElement('br', null),
+            _react2.default.createElement('br', null),
+            _react2.default.createElement('i', { className: 'results-icon fa fa-chevron-down', 'aria-hidden': 'true' })
+          )
         ),
         _react2.default.createElement(
-          'p',
-          { className: 'results-text' },
-          'Thank you to all those who participated in this pizza study.'
-        ),
-        this.renderResults(this.props.results)
+          'div',
+          { className: 'col-md-8 col-md-offset-2 results-inner' },
+          this.renderResults(this.props.results)
+        )
       );
     }
   }]);
