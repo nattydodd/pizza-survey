@@ -27,29 +27,20 @@ Testing Libraries
 * Enzyme
 * jsdom
 
+--
+
 To Setup Dev Env:
-$ sudo npm install -g nodemon
-$ sudo npm install -g node-sass
-$ npm install webpack -g
+* $ sudo npm install -g nodemon
+* $ sudo npm install -g node-sass
+* $ npm install webpack -g
+* $ gem install foreman
 
 Dev Database Initialization:
-- Ensure postgresql is running locally
-$ Rails db:setup
+* Ensure postgresql is running locally
+* $ Rails db:setup
 
 To Start Dev Server:
-$ foreman start -f Procfile.dev
+* $ foreman start -f Procfile.dev
 
 To run test suite:
-$ npm test
-
-
-
-----
-
-* System dependencies
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* $ npm test
