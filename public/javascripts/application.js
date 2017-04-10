@@ -16476,7 +16476,7 @@ var Home = function (_Component) {
               _react2.default.createElement(
                 'p',
                 { className: 'detail-text' },
-                'Though this survey is about pizza, any list of survey questions can be entered into the reducer and this application will display the survey. Scalability: A form could be incorporated to collect the question data (question, description and style/type) from the user. It could be sent to the backend API and saved in the database, then fetched from the server instead of hardcoding it into the reducer.'
+                'Though this survey is about pizza, any list of survey questions can be entered into the reducer and this application will display the survey. Scalability: A form could be incorporated to allow a user to create the survey themself (by simply entering the questions, description and style/type). It could be sent to the backend API and saved in the database, then fetched from the server on page load.'
               )
             )
           ),
@@ -17119,9 +17119,10 @@ var Response = function (_Component) {
             question.question
           ),
           _react2.default.createElement(
-            'h4',
+            'p',
             { className: 'response-answer' },
-            'Answer:  ',
+            _react2.default.createElement('i', { className: 'fa fa-commenting', 'aria-hidden': 'true' }),
+            '\xA0\xA0',
             question.answer
           )
         );
@@ -17242,9 +17243,14 @@ var Results = function (_Component) {
         'div',
         { className: 'container results' },
         _react2.default.createElement(
-          'h1',
+          'h2',
           { className: 'results-title' },
           'Results'
+        ),
+        _react2.default.createElement(
+          'p',
+          { className: 'results-text' },
+          'Thank you to all those who participated in this pizza study.'
         ),
         this.renderResults(this.props.results)
       );

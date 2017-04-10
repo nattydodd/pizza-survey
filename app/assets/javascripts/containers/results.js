@@ -36,7 +36,10 @@ class Results extends Component {
     }
       return (
         <div className="container results">
-          <h1 className="results-title">Results</h1>
+          <h2 className="results-title">
+            Results
+          </h2>
+          <p className="results-text">Thank you to all those who participated in this pizza study.</p> 
           {this.renderResults(this.props.results)}
         </div>
       );

@@ -73,6 +73,9 @@ label {
 .response-icon {
   color: #FF9800 !important; }
 
+.response-inner {
+  padding: 0 10px; }
+
 .results-title {
   text-align: center;
   padding: 30px 0; }
@@ -81,7 +84,24 @@ label {
   background: lightblue; }
 
 .result-name {
-  color: #ff3d3d; }
+  color: #ff3d3d;
+  letter-spacing: 2px;
+  background: #fce7c7;
+  border-radius: 3px;
+  padding: 5px 10px; }
+
+.results-image img {
+  max-width: 150px; }
+
+.results-image {
+  text-align: center; }
+
+.result {
+  background: #fff9ee; }
+
+.results-text {
+  text-align: center;
+  padding-bottom: 10px; }
 
 .sidenav-component {
   background: #ff3d3d;
