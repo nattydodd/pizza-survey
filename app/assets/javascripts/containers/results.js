@@ -14,6 +14,16 @@ class Results extends Component {
   }
 
   renderResults(results) {
+    if (results.length === 0) {
+      return (
+        <div className="result-none">
+          <h3 className="results-none-title">There are no responses yet.</h3>
+          <Link to="/survey" className="btn btn-primary">
+            Take Survey
+          </Link>
+        </div>
+      );
+    }
     return results.map((result) => {
       return (
         <div className="result" key={result.id}>

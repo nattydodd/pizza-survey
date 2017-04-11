@@ -17219,6 +17219,22 @@ var Results = function (_Component) {
   }, {
     key: 'renderResults',
     value: function renderResults(results) {
+      if (results.length === 0) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'result-none' },
+          _react2.default.createElement(
+            'h3',
+            { className: 'results-none-title' },
+            'There are no responses yet.'
+          ),
+          _react2.default.createElement(
+            _reactRouter.Link,
+            { to: '/survey', className: 'btn btn-primary' },
+            'Take Survey'
+          )
+        );
+      }
       return results.map(function (result) {
         return _react2.default.createElement(
           'div',

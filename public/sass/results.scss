@@ -32,6 +32,19 @@
   padding-bottom: 10px;
 }
 
+.result-none {
+  text-align: center;
+  background: #fff9ee;
+  width: 70%;
+  margin: auto;
+  padding: 10px 10px 40px;
+  border-radius: 10px;
+}
+
+.results-none-title {
+  margin-bottom: 20px !important;
+}
+
 
 .results-icon {
   color: $primary3;
