@@ -29,7 +29,7 @@ Testing Libraries
 
 --
 
-To Setup Dev Env:
+Dev Dependencies You May Need to Install:
 * $ sudo npm install -g nodemon
 * $ sudo npm install -g node-sass
 * $ npm install webpack -g
@@ -39,9 +39,12 @@ Dev Database Initialization:
 * Ensure postgresql is running locally
 * $ Rails db:setup
 
-To Start Dev Server:
+Setup instructions:
+* $ npm install
+* $ bundle install
+* $ rails db:setup
 * $ foreman start -f Procfile.dev
-* Separate window: $ npm run watch-css
+* Note: If you run into issues with CSS, in a separate terminal window run: $ npm run watch-css
 
 To run test suite:
 * $ npm test
