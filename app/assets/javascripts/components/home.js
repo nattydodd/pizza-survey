@@ -67,8 +67,6 @@ class Home extends Component {
                     • Redux<br />
                     • Database: Postgresql<br />
                     • SASS<br />
-                    • Yarn and npm<br />
-                    • Mocha, Chai, Enzyme & Jsdom
                   </p>
                 </div>
               </div>

@@ -46,7 +46,6 @@ class QuestionList extends Component {
 
   calculateEmptyResponses() {
     var responses = this.state.response;
-    console.log(responses)
     var filtered = responses.filter((n) => {
       return n != null && n.data.answer != ""
     });
@@ -59,21 +58,18 @@ class QuestionList extends Component {
     var response = this.state.response;
     response.shift();
     var answer = []
-    {/*remove first blank element from array
-      and refactor array so it just contains an array of data objects */}
+
     answer = response.map((object) => {
       return object.data
     });
 
-    console.log(answer);
     answer.forEach((question) => {
       axios.post(`api/v1/responses/${this.props.responseId}/questions.json`, question)
         .then((response) => {
-          console.log("success");
           this.context.router.push('/thankyou');
         })
-        .catch((response) => {
-          console.log("fail");
+        .catch((error) => {
+          console.log(error);
         });
     })
 

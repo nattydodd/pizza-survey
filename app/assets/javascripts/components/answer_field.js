@@ -22,7 +22,6 @@ class AnswerField extends Component {
   }
 
 
-
   handleMultipleInputChange(event) {
   // collect the data for the array of selections
     let option = event.target.value;
@@ -31,7 +30,6 @@ class AnswerField extends Component {
     let newArray = [];
     let me = this;
 
-    console.log(`orig state`, origArray);
   // inner function checks if the array contains the selection already
   // if it's there already, it will remove it (box has been unchecked)
     (function () {

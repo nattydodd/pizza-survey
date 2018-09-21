@@ -12,7 +12,6 @@ Tools Used:
 * Database: postgresql
 * SASS
 * Responders gem to assist with returning json response from api requests
-* Yarn and npm
 
 Additional Dependencies:
 * react-router
@@ -26,6 +25,7 @@ Testing Libraries
 * Chai
 * Enzyme
 * jsdom
+* Test coverage is still incomplete and will be improved gradually
 
 --
 
